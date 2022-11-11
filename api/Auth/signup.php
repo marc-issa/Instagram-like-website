@@ -24,7 +24,7 @@
         if($conn->connect_error){
             die("Connection Failed: ".$conn->connect_error);
         }else{
-            $stmt->bind_param("sssss", $username, $email, $first_name, $last_name, $password);
+            $stmt->bind_param("sssss", $username, $email, $first_name, $last_name, $pwd);
             $stmt->execute();
 
             $id = getId($username, $conn);
