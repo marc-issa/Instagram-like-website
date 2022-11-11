@@ -50,4 +50,11 @@
             return $id;
         }
     }
+
+    function getLastPostId($conn){
+        $stmt = $conn->prepare("SELECT last_insert_id()");
+        $stmt->execute();
+        $results = $stmt->get_result();
+        return $results->fetch_assoc();
+    }
 ?>
