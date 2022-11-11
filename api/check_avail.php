@@ -45,9 +45,9 @@
             $stmt->bind_param("s", $username);
             $stmt->execute();
             $result = $stmt->get_result();
-            $user = $result->fetch_assoc();
+            $id = $result->fetch_assoc();
             
-            return $user;
+            return $id;
         }
     }
 ?>
