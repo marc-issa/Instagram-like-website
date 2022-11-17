@@ -53,10 +53,7 @@ if(isset($_POST["password"])){
     if($conn->connect_error){
         die("Connection Failed: ".$conn->connect_error);
     }else{
-        $password = $_POST["password"];
-        $password = hash("sha256", $password);
-
-        $stmt->bind_param("si", $password,$user_id);
+        $stmt->bind_param("si", $_POST["password"], $user_id);
         $stmt->execute();
     }
 }
