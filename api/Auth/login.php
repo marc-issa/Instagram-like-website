@@ -3,7 +3,6 @@
 
     $username = $_POST["username"];
     $pwd = $_POST["pwd"];
-    $pwd = hash("sha256", $pwd);
 
     $response = [];
 
