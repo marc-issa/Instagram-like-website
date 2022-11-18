@@ -37,7 +37,7 @@
     }
 
     function getId($username, $conn){
-        $stmt = $conn->prepare("SELECT id FROM users WHERE $username=?");
+        $stmt = $conn->prepare("SELECT id FROM users WHERE username=?");
         
         if($conn->connect_error){
             die("Connection Failed: ".$conn->connect_error);
