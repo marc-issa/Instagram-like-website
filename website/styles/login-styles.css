@@ -30,7 +30,7 @@ body {
 .card-content {
     margin-top: 1.5em;
     width: 45%;
-    /* height: 75%; */
+
     border: 1px solid #DEE2E6;
     background-color: white;
     text-align: center;
@@ -79,6 +79,7 @@ body {
     padding-bottom: 1em;
     font-weight: 300;
     font-size: 15px;
+    justify-content: row;
 }
 
 .signup-link {
