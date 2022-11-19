@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <title>Sign up - Instagram</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles/signup-styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-content">
+                <div class="signup-name-logo">
+                    <img src="images/name-logo.png" class="name-logo" alt="Instagram">
+                </div>
+                <div class="signup-context">
+                    <h3>Sign Up to see photos and videos</h3>
+                </div>
+                <div class="signup-form">
+                    <form action="#" method="POST">
+                        <input type="text" class="input-box" name="username" placeholder="Username">
+                        <input type="text" class="input-box input-box-password" name="first_name"
+                            placeholder="First Name">
+                        <input type="text" class="input-box input-box-password" name="last_name"
+                            placeholder="Last Name">
+                        <input type="email" class="input-box input-box-password" name="email" placeholder="Email">
+                        <input type="password" class="input-box input-box-password" name="password"
+                            id="password-input-box" onclick="inputClicked('password-input-box')" placeholder="Password">
+                        <button type="submit" class="signup-button" id="signup-button">Sign Up</button>
+                    </form>
+                </div>
+            </div>
+            <div class="card-content login-redirect">
+                <p>Have an account? <a class="login-link" onclick="loginRedirect()">Log In</a></p>
+            </div>
+        </div>
+        <script src="scripts/signup-app.js"></script>
+    </div>
+</body>
+
+</html>
