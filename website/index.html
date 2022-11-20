@@ -25,13 +25,14 @@
                 <div class="login-name-logo">
                     <img src="images/name-logo.png" class="name-logo" alt="Instagram">
                 </div>
-                <div class="login-form">
-                    <form action="#" method="POST">
+                <div class="login-form" id="login-form">
+                    <form method="POST">
                         <input type="text" class="input-box" name="username" id="username-input-box"
-                            onclick="inputClicked('username-input-box')" placeholder="Username">
+                            placeholder="Username">
                         <input type="password" class="input-box input-box-password" name="password"
-                            id="password-input-box" onclick="inputClicked('password-input-box')" placeholder="Password">
-                        <button type="submit" class="login-button" id="login-button">Log In</button>
+                            id="password-input-box" placeholder="Password">
+                        <button type="button" class="login-button" id="login-button" onclick="handleSubmit()">Log
+                            In</button>
                     </form>
                 </div>
             </div>
@@ -39,6 +40,7 @@
                 <p>Don't have an account? <a class="signup-link" onclick="signupRedirect()">Sign Up</a></p>
             </div>
         </div>
+        <script src="node_modules/blueimp-md5/js/md5.min.js"></script>
         <script src="scripts/login-app.js"></script>
 </body>
 
