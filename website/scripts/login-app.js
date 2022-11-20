@@ -32,8 +32,6 @@ let handleSubmit = () => {
             } else {
                 username.style.borderColor = "red";
                 password.style.borderColor = "red";
-
-
             }
         }
 

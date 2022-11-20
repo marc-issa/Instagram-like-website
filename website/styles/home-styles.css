@@ -122,6 +122,7 @@ body {
 }
 
 .post-item {
+    flex: 1;
     background-color: white;
     width: 75%;
     border: 1px normal black;
@@ -180,6 +181,7 @@ body {
 .username-content {
     flex: 1;
     margin: 0;
+    margin-right: 0.3em;
 }
 
 .caption-content {
