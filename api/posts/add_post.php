@@ -3,7 +3,7 @@
     include("../check_avail.php");
     
     $user_id = $_POST["id"];
-    $img_name = "../uploads/images/".$_POST["img_name"];
+    $img_path = $_POST["img_path"];
     $cap = $_POST["cap"];
     
     $response = [];

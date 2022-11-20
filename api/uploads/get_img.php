@@ -6,5 +6,5 @@
 
     header('Content-type: '.$size['mime']);
 
-    readfile($pic);
+    echo json_encode(readfile($pic));
 ?>

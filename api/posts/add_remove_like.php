@@ -17,10 +17,10 @@
 
         if(!$like){
             addLike($conn, $post_id, $user_id);
-            $response["resp"] = "Like added";
+            $response["resp"] = "like-added";
         }else{
             removeLike($conn, $post_id, $user_id);
-            $response["resp"] = "Like removed";
+            $response["resp"] = "like-removed";
         }
         echo json_encode($response);
     }
