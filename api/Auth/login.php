@@ -4,8 +4,6 @@
     $username = $_POST["username"];
     $pwd = $_POST["pwd"];
 
-    $response = [];
-
     $stmt = $conn->prepare("SELECT id FROM users WHERE username = ? and password = ?");
         if($conn->connect_error){
             die("Connection Failed: ".$conn->connect_error);
@@ -18,7 +16,7 @@
             if($id){
                 $response["resp"] = $id["id"];
             } else{
-                $response["resp"] = "User Not Found";
+                $response["resp"] = "user-not-found";
             }
             echo json_encode($response);
         }
