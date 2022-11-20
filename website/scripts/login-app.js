@@ -7,7 +7,7 @@ let handleSubmit = () => {
 
     const xhr = new XMLHttpRequest();
 
-    xhr.onload = () => {
+    xhr.onload = function () {
         let response = JSON.parse(this.responseText);
         let res = response["resp"];
         if (res != "user-not-found") {
