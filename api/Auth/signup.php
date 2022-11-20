@@ -14,10 +14,10 @@
     $auth_email = checkEmail($email, $conn);
 
     if($auth_username){
-        $response["resp"] = "username found";
+        $response["resp"] = "username-found";
     }
     elseif($auth_email){
-        $response["resp"] = "email found";
+        $response["resp"] = "email-found";
     }
     else{
         $stmt = $conn->prepare("INSERT INTO users(username, email, first_name, last_name, password) VALUES(?,?,?,?,?);");
