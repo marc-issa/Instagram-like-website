@@ -200,3 +200,11 @@ let displayAllComments = (post_id) => {
         })
 
 }
+
+let postRedirect = () => {
+    window.location.href = `/Projects/Website/Instagram-like-website/website/post.html?id=${id}`;
+}
+
+let profileRedirect = () => {
+    window.location.href = `/Projects/Website/Instagram-like-website/website/profile.html?id=${id}`;
+}
