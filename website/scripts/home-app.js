@@ -61,7 +61,7 @@ fetch('http://localhost/Projects/Website/Instagram-like-website/api/home/all_pos
                                                     </div>
                                                     <div class="likencomment">
                                                         <span><img src="images/like-icon.png" class="like" id="like${post["id"]}" onclick="addLike(${post["id"]},${id})"><img src="images/comment-icon.png"
-                                                                class="comment" id="comment"></span>
+                                                                class="comment" id="comment" onclick="commentPopup(${post["id"]}, ${id})"></span>
                                                     </div>
                                                     <div class="caption">
                                                         <h4 class="username-content">${username}</h4>
@@ -81,6 +81,22 @@ fetch('http://localhost/Projects/Website/Instagram-like-website/api/home/all_pos
 
     })
 
+//Creating popup
+let div = document.createElement("div");
+div.setAttribute('class', 'popup');
+div.setAttribute('id', 'popup');
+div.innerHTML = `<h1>Comments</h1>
+                <div class = "all-comments" id = "all-comments">
+                </div>
+                <div class="add-comment">
+                    <input type="text" id="comment-input" class = "comment-input">
+                    <button class="comment-bt" id ="comment-bt" type="button">Post Comment</button>
+                    <button class="comment-bt" id ="comment-bt" type="button" onclick="closePopup()">Exit</button>
+                </div>
+                `
+document.getElementById("mid").appendChild(div);
+
+// on click functions
 let addLike = (post_id, user_id) => {
     let data = new FormData();
     data.append('user_id', user_id);
@@ -106,4 +122,81 @@ let addLike = (post_id, user_id) => {
         })
 }
 
+let commentPopup = (post_id, user_id) => {
+    div.style.visibility = "visible";
+    scrolling(false);
+    displayAllComments(post_id);
 
+    let com_bt = document.getElementById("comment-bt");
+    com_bt.setAttribute("onclick", `addComment(${post_id}, ${user_id})`)
+}
+
+// enable and disable scrolling
+let scrolling = (param) => {
+    if (param) {
+        window.onscroll = function () { };
+    } else {
+        let scrollTop = window.pageYOffset;
+        let scrollLeft = window.pageXOffset;
+
+        window.onscroll = function () {
+            window.scrollTo(scrollLeft, scrollTop)
+        }
+    }
+}
+
+let closePopup = () => {
+    scrolling(true);
+    div.style.visibility = "hidden";
+}
+
+let addComment = (post_id, user_id) => {
+    let com = document.getElementById("comment-input")
+    let data = new FormData();
+    data.append('post_id', post_id);
+    data.append('user_id', user_id);
+    data.append('com', com.value);
+
+    fetch(`http://localhost/Projects/Website/Instagram-like-website/api/posts/add_comment.php`, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+        },
+        body: data
+    }).then(response => response.text())
+        .then(text => {
+        })
+    displayAllComments(post_id);
+}
+
+
+
+let displayAllComments = (post_id) => {
+    let comments = [];
+
+    let p = document.getElementById("comment-item");
+    while (p != null) {
+        p.remove();
+        p = document.getElementById("comment-item");
+    }
+
+    fetch(`http://localhost/Projects/Website/Instagram-like-website/api/posts/get_comment.php?post_id=${post_id}`, {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+        },
+    }).then(response => response.text())
+        .then(text => {
+            comments = JSON.parse(text)["resp"];
+
+            for (let i = 0; i < comments.length; i++) {
+                let com = comments[i];
+                let p = document.createElement("p");
+                p.setAttribute("class", "comment-item");
+                p.setAttribute("id", "comment-item");
+                p.innerHTML = `${com}`;
+                document.getElementById("all-comments").appendChild(p);
+            }
+        })
+
+}

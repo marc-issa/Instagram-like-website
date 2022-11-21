@@ -125,7 +125,6 @@ body {
     flex: 1;
     background-color: white;
     width: 75%;
-    border: 1px normal black;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -187,4 +186,35 @@ body {
 .caption-content {
     flex: 6;
     margin: 0;
+}
+
+.popup {
+    background-color: white;
+    position: fixed;
+    width: 60%;
+    height: 80%;
+    margin-bottom: 60%;
+    visibility: hidden;
+    padding: 0.5em 2em;
+    border: 2px normal #343A40;
+    border-radius: 20px;
+}
+
+.all-comments {
+    width: 100%;
+    height: 70%;
+    padding: 0.5em;
+}
+
+.comment-item {
+    margin: 0;
+    padding: 0.5em;
+}
+
+.add-comment {
+    width: 100%;
+}
+
+.comment-input {
+    width: 70%;
 }
