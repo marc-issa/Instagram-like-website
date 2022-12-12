@@ -8,6 +8,7 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     width: 100%;
     height: 100%;
     margin-top: 2.5em;
@@ -60,28 +61,6 @@ body {
 
 .login-name-logo {
     flex: 1;
-}
-
-.line-break {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 75%;
-
-}
-
-.line-1 {
-    flex-grow: 1;
-}
-
-.line-2 {
-    flex-grow: 1;
-}
-
-.or {
-    margin-left: .5em;
-    margin-right: .5em;
-    color: rgb(0, 0, 0, .6);
 }
 
 .fp-box {

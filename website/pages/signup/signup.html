@@ -5,14 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="icon" type="image/png" href="../../images/logo.png">
     <title>Sign up - Instagram</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="styles/signup-styles.css">
+    <link rel="stylesheet" href="signup-styles.css">
+    <link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body>
@@ -20,25 +21,53 @@
         <div class="card">
             <div class="card-content">
                 <div class="signup-name-logo">
-                    <img src="images/name-logo.png" class="name-logo" alt="Instagram">
+                    <img src="../../images/name-logo.png" class="name-logo" alt="Instagram">
                 </div>
-                <div class="signup-context">
-                    <h3>Sign Up to see photos and videos</h3>
+                <div class="context-box">
+                    <div class="signup-context">
+                        Sign Up to see photos and videos from your friends
+                    </div>
                 </div>
-                <div class="signup-form" id="signup-form">
-                    <form>
-                        <input type="text" class="input-box" placeholder="Username" id="username-input-box" required>
-                        <input type="text" class="input-box input-box-password" id="fname-input-box"
-                            placeholder="First Name" required>
-                        <input type="text" class="input-box input-box-password" id="lname-input-box"
-                            placeholder="Last Name" required>
-                        <input type="email" class="input-box input-box-password" id="email-input-box"
-                            placeholder="Email" required>
-                        <input type="password" class="input-box input-box-password" id="password-input-box"
-                            placeholder="Password" required>
-                        <button type="button" class="signup-button" onclick="handleSignup()">Sign
-                            Up</button>
-                    </form>
+                <div class="google-btn">
+                    <div class="google-icon-wrapper">
+                        <img class="google-icon"
+                            src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" />
+                    </div>
+                    <p class="btn-text"><b>Sign in with google</b></p>
+                </div>
+                <div class="line-break">
+                    <div class="line-1">
+                        <hr class="line">
+                    </div>
+                    <div class="or">
+                        or
+                    </div>
+                    <div class="line-2">
+                        <hr class="line">
+                    </div>
+                </div>
+                <div class="form">
+                    <div class="form-content">
+                        <form method="POST" action="submit.js">
+                            <div class="field-holder">
+                                <input type="text" class="input-box" id="email" required>
+                                <label for="email" class="input-label">Email</label>
+                            </div>
+                            <div class="field-holder">
+                                <input type="text" class="input-box" id="fname" required>
+                                <label for="fname" class="input-label">Full Name</label>
+                            </div>
+                            <div class="field-holder">
+                                <input type="text" class="input-box" id="username" required>
+                                <label for="username" class="input-label">Username</label>
+                            </div>
+                            <div class="field-holder">
+                                <input type="password" class="input-box" id="password" required>
+                                <label for="password" class="input-label">Password</label>
+                            </div>
+                            <button type="submit" class="button">Sign Up</button>
+                        </form>
+                    </div>
                 </div>
             </div>
             <div class="card-content login-redirect">

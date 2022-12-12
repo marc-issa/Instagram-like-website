@@ -4,7 +4,7 @@
 
 .field-holder {
     position: relative;
-    margin-bottom: 1.25em;
+    margin-bottom: .5em;
 }
 
 .input-box {
@@ -51,7 +51,7 @@
 .button {
     width: 100%;
     border: 0;
-    margin-bottom: 1.25em;
+    margin-bottom: .5em;
     height: 30px;
     padding: .25em .3em;
     border-radius: 3px;
@@ -64,6 +64,28 @@
 /* *************************************** */
 /*                 Lines                   */
 /* *************************************** */
+.line-break {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 75%;
+
+}
+
+.line-1 {
+    flex-grow: 1;
+}
+
+.line-2 {
+    flex-grow: 1;
+}
+
+.or {
+    margin-left: .5em;
+    margin-right: .5em;
+    color: rgb(0, 0, 0, .6);
+}
+
 .line {
     height: .1px;
     background: rgb(0, 0, 0, .2);
