@@ -1,0 +1,111 @@
+body {
+    background-color: #F8F9FA;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    margin-top: 2.5em;
+}
+
+.img {
+    flex: 1;
+    text-align: end;
+}
+
+.card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    padding: 2em;
+}
+
+.card-content {
+    margin-top: 1.5em;
+    width: 45%;
+
+    border: 1px solid #DEE2E6;
+    background-color: white;
+    text-align: center;
+    padding-top: 2.5em;
+    padding-bottom: 3em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 75%;
+    margin-top: 2em;
+}
+
+.login-name-logo {
+    flex: 1;
+}
+
+.line-break {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 75%;
+
+}
+
+.line-1 {
+    flex-grow: 1;
+}
+
+.line-2 {
+    flex-grow: 1;
+}
+
+.or {
+    margin-left: .5em;
+    margin-right: .5em;
+    color: rgb(0, 0, 0, .6);
+}
+
+.fp-box {
+    margin-top: 1.25em;
+}
+
+.fp-link {
+    text-decoration: none;
+    font-size: 14px;
+    color: rgb(0, 0, 0)
+}
+
+.signup-redirect {
+    margin-top: 1em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    font-weight: 300;
+    font-size: 15px;
+    justify-content: row;
+}
+
+.signup-link {
+    font-weight: 600;
+    font-style: normal;
+    color: #0095f6;
+    text-decoration: none;
+}

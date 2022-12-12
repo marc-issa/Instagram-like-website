@@ -28,7 +28,7 @@ let handleSubmit = () => {
             let response = JSON.parse(this.responseText);
             let res = response["resp"];
             if (res != "user-not-found") {
-                window.location.href = "/Projects/Website/Instagram-like-website/website/home.html?id=" + res;
+                window.location.href = "/Projects/Website/Instagram-like-website/website/pages/home/home.html?id=" + res;
             } else {
                 username.style.borderColor = "red";
                 password.style.borderColor = "red";
