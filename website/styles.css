@@ -138,3 +138,76 @@
 }
 
 @import url(https://fonts.googleapis.com/css?family=Roboto:500);
+
+/* *************************************** */
+/*                 dashboard               */
+/* *************************************** */
+
+.dashboard {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: white;
+    height: 100%;
+    width: 16%;
+    border-right: 1px solid #DEE2E6;
+}
+
+.logo-sec {
+    width: 82%;
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 2.1em;
+}
+
+.logo {
+    width: 7em;
+}
+
+.btns-display {
+    width: 82%;
+    margin-top: 2.7em;
+    display: flex;
+    flex-direction: column;
+}
+
+.dash-btn {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5em;
+    padding: .5em 1em;
+}
+
+.btn-icon {
+    margin-right: .7em;
+}
+
+.icon-size {
+    max-width: 24px;
+    min-width: 24px;
+}
+
+.profile-size {
+    max-width: 24px;
+    min-width: 24px;
+    border-radius: 100%;
+}
+
+.dash-text {
+    font-size: 1em;
+    font-weight: 400;
+    color: rgb(0, 0, 0, .75);
+}
+
+.curr {
+    font-weight: 500;
+    font-size: 1em;
+    color: rgb(0, 0, 0);
+}
+
+.dash-btn:hover {
+    background-color: rgb(0, 0, 0, .02);
+    border-radius: 25px;
+}
