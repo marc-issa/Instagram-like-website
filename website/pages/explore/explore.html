@@ -51,50 +51,90 @@
 
     </div>
     <div class="empty-sec"></div>
+    <div class="modal" id="modal">
+        <a onclick="closeModal()" class="close-bt-link"><img src="../../images/close-btn.png" alt=""
+                class="close-button"></a>
+        <div class="modal-post" id="modal-post">
+            <div class="modal-post-img">
+                <img src="../../images/demo-img.jpg" class="modal-post-img-size">
+            </div>
+            <div class="modal-comment-sec">
+                <div class="comment-sec-header">
+                    <img src="../../images/no-profile.png" alt="" class="post-profile" onclick="profileRedirect()">
+                    <div class="username-post" onclick="profileRedirect()">
+                        username.1
+                    </div>
+                </div>
+                <div class="comment-sec-content">
+                    <div class="comment-item">
+                        <div class="username-comment" onclick="profileRedirect()">
+                            username.1
+                        </div>
+                        <div class="comment-content">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus optio debitis
+                            ratione, incidunt quod aut quaerat excepturi doloremque.
+                        </div>
+                    </div>
+                </div>
+                <div class="comment-sec-footer">
+                    <input type="text" class="post-comment-input" placeholder="Add a comment...">
+                    <a class="post-comment">Post</a>
+                </div>
+            </div>
+        </div>
+        <div class="modal-storie" id="modal-storie">
+            <div class="storie-content">
+                <div class="storie-header">
+                    <img src="../../images/no-profile.png" class="post-profile" onclick="profileRedirect()">
+                    <div class="username-post username-storie" onclick="profileRedirect()">username.1</div>
+                    <div class="storie-time">9h</div>
+                </div>
+                <img src="../../images/demo-img.jpg" class="img-storie">
+            </div>
+        </div>
+    </div>
     <div class="explore-sec">
         <div class="search-bar">
             <input type="text" class="search-input" placeholder="Search">
         </div>
         <div class="explore-posts">
             <div class="post-display">
-                <img src="../../images/demo2.jpg" class="explore-post-size">
+                <img src="../../images/demo2.jpg" class="explore-post-size" onclick="viewPost()">
             </div>
             <div class="post-display">
-                <img src="../../images/demo-img.jpg" class="explore-post-size">
+                <img src="../../images/demo2.jpg" class="explore-post-size" onclick="viewPost()">
             </div>
             <div class="post-display">
-                <img src="../../images/demo-img.jpg" class="explore-post-size">
+                <img src="../../images/demo2.jpg" class="explore-post-size" onclick="viewPost()">
             </div>
             <div class="post-display">
-                <img src="../../images/demo-img.jpg" class="explore-post-size">
+                <img src="../../images/demo-img.jpg" class="explore-post-size" onclick="viewPost()">
             </div>
             <div class="post-display">
-                <img src="../../images/demo-img.jpg" class="explore-post-size">
+                <img src="../../images/demo-img.jpg" class="explore-post-size" onclick="viewPost()">
             </div>
             <div class="post-display">
-                <img src="../../images/demo-img.jpg" class="explore-post-size">
+                <img src="../../images/demo-img.jpg" class="explore-post-size" onclick="viewPost()">
             </div>
             <div class="post-display">
-                <img src="../../images/demo-img.jpg" class="explore-post-size">
+                <img src="../../images/demo-img.jpg" class="explore-post-size" onclick="viewPost()">
             </div>
             <div class="post-display">
-                <img src="../../images/demo-img.jpg" class="explore-post-size">
+                <img src="../../images/demo-img.jpg" class="explore-post-size" onclick="viewPost()">
             </div>
             <div class="post-display">
-                <img src="../../images/demo-img.jpg" class="explore-post-size">
+                <img src="../../images/demo-img.jpg" class="explore-post-size" onclick="viewPost()">
             </div>
             <div class="post-display">
-                <img src="../../images/demo-img.jpg" class="explore-post-size">
+                <img src="../../images/demo-img.jpg" class="explore-post-size" onclick="viewPost()">
             </div>
             <div class="post-display">
-                <img src="../../images/demo-img.jpg" class="explore-post-size">
-            </div>
-            <div class="post-display">
-                <img src="../../images/demo-img.jpg" class="explore-post-size">
+                <img src="../../images/demo-img.jpg" class="explore-post-size" onclick="viewPost()">
             </div>
         </div>
     </div>
     <div class="right-sec">
     </div>
     <script src="../../routing/routing.js"></script>
+    <script src="../../modal-scripts.js"></script>
 </body>
