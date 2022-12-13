@@ -28,7 +28,7 @@
                 </div>
                 <div class="form">
                     <div class="form-content">
-                        <form method="POST" action="submit.js">
+                        <form method="post">
                             <div class="field-holder">
                                 <input type="text" class="input-box" id="username" required>
                                 <label for="username" class="input-label">Username, or email</label>
@@ -37,7 +37,7 @@
                                 <input type="password" class="input-box" id="password">
                                 <label for="password" class="input-label">Password</label>
                             </div>
-                            <button type="submit" class="button" id="login-button">Log
+                            <button type="button" class="button" id="login-button" onclick="handleSubmit()">Log
                                 In</button>
                         </form>
                     </div>
@@ -68,7 +68,6 @@
                 <p>Don't have an account? <a class="signup-link" onclick="signupRedirect()">Sign Up</a></p>
             </div>
         </div>
-        <script src="node_modules/blueimp-md5/js/md5.min.js"></script>
         <script src="app.js"></script>
 </body>
 
