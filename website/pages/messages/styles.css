@@ -1,0 +1,166 @@
+.messages-sec {
+    width: 70%;
+    height: 40em;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.right-sec {
+    width: 20%;
+}
+
+.messages-card {
+    width: 90%;
+    height: 100%;
+    margin-top: 3em;
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    border: 1px solid #DEE2E6;
+    border-radius: 3px;
+}
+
+.rooms {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #DEE2E6;
+}
+
+.rooms-header {
+    padding: 1em;
+    text-align: center;
+    border-bottom: 1px solid #DEE2E6;
+}
+
+.room-username {
+    font-weight: 500;
+}
+
+.rooms-subheader {
+    padding: .5em;
+}
+
+.subheader-text {
+    font-weight: 500;
+}
+
+.rooms-list {
+    overflow-y: scroll;
+    height: 100%;
+}
+
+.room-item {
+    display: flex;
+    align-items: center;
+    padding: 1em;
+}
+
+.room-profile-pic {
+    max-width: 50px;
+    border-radius: 100%;
+}
+
+.room-info {
+    margin-left: 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+.user-fullname {
+    font-weight: 300;
+}
+
+.last-message-date {
+    color: rgb(0, 0, 0, .5)
+}
+
+.room-item:Hover {
+    background-color: rgb(0, 0, 0, .02);
+}
+
+.chat {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-header {
+    padding: .6em;
+    border-bottom: 1px solid #DEE2E6;
+}
+
+.chat-username {
+    display: flex;
+    align-items: center;
+}
+
+.chat-header-text {
+    margin-left: 1em;
+}
+
+.chat-profile-pic {
+    max-width: 32px;
+    max-height: 32px;
+    border-radius: 100%;
+}
+
+.chat-content {
+    height: 83%;
+    overflow: auto;
+    display: flex;
+    flex-direction: column-reverse;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    padding-bottom: 1em;
+}
+
+.message {
+    max-width: 50%;
+
+    padding: .7em;
+    border: 1px solid #DEE2E6;
+    border-radius: 25px;
+    margin-top: .7em;
+}
+
+.user-sent {
+    align-self: flex-end;
+    background-color: rgb(0, 0, 0, 0.2);
+}
+
+.chat-footer {
+    padding: .5em;
+    display: flex;
+    align-items: center;
+}
+
+.chat-input {
+    padding: .5em;
+    width: 100%;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #DEE2E6;
+
+}
+
+.chat-input-field {
+    width: 88%;
+    border: 0;
+    padding: .5em;
+}
+
+.chat-input-field:focus {
+    outline: 0;
+}
+
+.send-button {
+    text-decoration: none;
+    font-weight: 600;
+    color: rgba(0, 149, 246, 0.5);
+}
+
+.send-button :focus+.post-bt {
+    color: rgba(0, 149, 246, 1);
+}
