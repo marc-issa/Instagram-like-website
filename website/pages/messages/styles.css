@@ -54,6 +54,7 @@
     display: flex;
     align-items: center;
     padding: 1em;
+    cursor: pointer;
 }
 
 .room-profile-pic {
@@ -76,13 +77,25 @@
 }
 
 .room-item:Hover {
-    background-color: rgb(0, 0, 0, .02);
+    background-color: rgba(0, 0, 0, .02);
+}
+
+.active-room {
+    background-color: rgba(0, 0, 0, .1);
+    cursor: text;
+}
+
+.active-room:Hover {
+    background-color: rgba(0, 0, 0, .1);
 }
 
 .chat {
     width: 65%;
     display: flex;
     flex-direction: column;
+
+    opacity: 0;
+    pointer-events: none;
 }
 
 .chat-header {
@@ -96,13 +109,15 @@
 }
 
 .chat-header-text {
-    margin-left: 1em;
+    margin-left: .7em;
+    cursor: pointer;
 }
 
 .chat-profile-pic {
     max-width: 32px;
     max-height: 32px;
     border-radius: 100%;
+    cursor: pointer;
 }
 
 .chat-content {
@@ -115,9 +130,13 @@
     padding-bottom: 1em;
 }
 
+.active-chat {
+    opacity: 1;
+    pointer-events: all;
+}
+
 .message {
     max-width: 50%;
-
     padding: .7em;
     border: 1px solid #DEE2E6;
     border-radius: 25px;

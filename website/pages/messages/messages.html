@@ -66,7 +66,7 @@
                     </div>
                 </div>
                 <div class="rooms-list">
-                    <div class="room-item">
+                    <div class="room-item" onclick="activateRoom(0)">
                         <div class="user-profile-pic">
                             <img src="../../images/no-profile.png" class="room-profile-pic" alt="">
                         </div>
@@ -79,7 +79,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="room-item">
+                    <div class="room-item" onclick="activateRoom(1)">
                         <div class="user-profile-pic">
                             <img src="../../images/no-profile.png" class="room-profile-pic" alt="">
                         </div>
@@ -92,7 +92,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="room-item">
+                    <div class="room-item" onclick="activateRoom(2)">
                         <div class="user-profile-pic">
                             <img src="../../images/no-profile.png" class="room-profile-pic" alt="">
                         </div>
@@ -105,7 +105,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="room-item">
+                    <div class="room-item" onclick="activateRoom(3)">
                         <div class="user-profile-pic">
                             <img src="../../images/no-profile.png" class="room-profile-pic" alt="">
                         </div>
@@ -118,7 +118,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="room-item">
+                    <div class="room-item" onclick="activateRoom(4)">
                         <div class="user-profile-pic">
                             <img src="../../images/no-profile.png" class="room-profile-pic" alt="">
                         </div>
@@ -131,7 +131,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="room-item">
+                    <div class="room-item" onclick="activateRoom(5)">
                         <div class="user-profile-pic">
                             <img src="../../images/no-profile.png" class="room-profile-pic" alt="">
                         </div>
@@ -144,7 +144,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="room-item">
+                    <div class="room-item" onclick="activateRoom(6)">
                         <div class="user-profile-pic">
                             <img src="../../images/no-profile.png" class="room-profile-pic" alt="">
                         </div>
@@ -157,20 +157,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="room-item">
-                        <div class="user-profile-pic">
-                            <img src="../../images/no-profile.png" class="room-profile-pic" alt="">
-                        </div>
-                        <div class="room-info">
-                            <div class="user-fullname">
-                                Admin admin
-                            </div>
-                            <div class="last-message-date">
-                                1d
-                            </div>
-                        </div>
-                    </div>
-                    <div class="room-item">
+                    <div class="room-item" onclick="activateRoom(7)">
                         <div class="user-profile-pic">
                             <img src="../../images/no-profile.png" class="room-profile-pic" alt="">
                         </div>
@@ -185,7 +172,7 @@
                     </div>
                 </div>
             </div>
-            <div class="chat">
+            <div class="chat" id="chat">
                 <div class="chat-header">
                     <div class="chat-username">
                         <img src="../../images/no-profile.png" class="chat-profile-pic" alt="">
@@ -198,41 +185,30 @@
                     <div class="message user-sent">
                         Lorem ipsum dolor.
                     </div>
-                    <div class="message user-sent">
-                        Lorem ipsum dolor.
-                    </div>
-                    <div class="message user-sent">
-                        Lorem ipsum dolor.
-                    </div>
                     <div class="message">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo quidem praesentium
-                        natus impedit
-                    </div>
-                    <div class="message">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo quidem praesentium
-                        natus impedit
-                    </div>
-                    <div class="message">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo quidem praesentium
-                        natus impedit
-                    </div>
-                    <div class="message">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo quidem praesentium
-                        natus impedit
-                    </div>
-                    <div class="message user-sent">
-                        Lorem ipsum dolor.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, perspiciatis nihil. Vel
+                        ducimus et beatae ea odit corrupti architecto dolores, facere quod quae iusto pariatur magnam
+                        temporibus voluptate enim rem!
                     </div>
                     <div class="message user-sent">
                         Lorem ipsum dolor.
                     </div>
                     <div class="message">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo quidem praesentium
-                        natus impedit
+                        Lorem ipsum dolor.
+                    </div>
+                    <div class="message user-sent">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias a molestias tenetur repellat
+                        iste enim nulla fugit assumenda, commodi omnis sequi illo eaque sed, provident fuga nesciunt
+                        magni natus repudiandae?
+                    </div>
+                    <div class="message user-sent">
+                        Lorem ipsum dolor.
                     </div>
                     <div class="message">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo quidem praesentium
-                        natus impedit
+                        Lorem ipsum dolor.
+                    </div>
+                    <div class="message user-sent">
+                        Lorem ipsum dolor.
                     </div>
                     <div class="message user-sent">
                         Lorem ipsum dolor.
@@ -240,7 +216,7 @@
                 </div>
                 <div class="chat-footer">
                     <div class="chat-input">
-                        <input type="text" placeholder="Message..." class="chat-input-field" onfocus="isTyping()">
+                        <input type="text" placeholder="Message..." class="chat-input-field">
                         <a href="" class="send-button" id="chat-post-bt">Send</a>
                     </div>
 
