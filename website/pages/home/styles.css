@@ -1,13 +1,10 @@
 .recomended-sec {
-    flex-grow: .7;
     height: 100%;
-    display: flex;
-    justify-content: flex-start;
 }
 
 .post-sec {
-    flex-grow: 2;
     height: 100%;
+    width: 70%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -22,7 +19,8 @@
     border: 1px solid #DEE2E6;
     border-radius: 10px;
     display: flex;
-    flex-direction: column;
+    justify-content: flex-start;
+    overflow: auto;
 }
 
 .storie-profile {
@@ -32,6 +30,8 @@
     justify-content: center;
     align-items: center;
     margin-top: 1em;
+    margin-right: .5em;
+    margin-left: .5em;
 }
 
 .storie-img {
