@@ -1,0 +1,50 @@
+.explore-sec {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em;
+}
+
+.right-sec {
+    width: 15%;
+}
+
+.search-bar {
+    width: 50%;
+    margin-top: 1em;
+}
+
+.search-input {
+    width: 100%;
+    background: url(../../images/search.png) center left;
+    background-color: rgba(0, 0, 0, 0.05);
+    background-repeat: no-repeat;
+    border: 0;
+    border-radius: 10px;
+    height: 2em;
+    padding: .5em;
+    padding-left: 2.5em;
+}
+
+.search-input:focus {
+    outline: 0;
+}
+
+.explore-posts {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 2em;
+}
+
+.explore-post-size {
+    max-width: 290px;
+    min-width: 290px;
+    min-height: 290px;
+    max-height: 290px;
+    margin: .5em;
+}
