@@ -127,6 +127,7 @@
 .comment-count {
     color: rgb(0, 0, 0, .5);
     text-decoration: none;
+    cursor: pointer;
 }
 
 .upload-time {

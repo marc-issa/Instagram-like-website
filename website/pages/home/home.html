@@ -50,6 +50,22 @@
         </div>
 
     </div>
+    <div class="overlay" id="overlay">
+        <a onclick="closePost()"><img src="../../images/close-btn.png" alt="" class="close-button"></a>
+        <div class="modal" id="modal">
+            <div class="header">
+                <div class="title">
+                    Notifications
+                </div>
+            </div>
+            <div class="notification-modal-body">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Non eos recusandae provident minima ipsam harum
+                quis velit illo! Eligendi accusamus minima beatae magnam necessitatibus ab facere ad perspiciatis
+                possimus
+                cum!
+            </div>
+        </div>
+    </div>
     <div class="empty-sec">
     </div>
     <div class="post-sec">
@@ -134,7 +150,7 @@
                         voluptas temporibus quam, libero explicabo illum alias dolorum nulla! Consectetur, labore!</div>
                 </div>
                 <div class="stats">
-                    <a class="comment-count" href="">Viw all 90 comments</a>
+                    <a class="comment-count" onclick="viewPost()">Viw all 90 comments</a>
                     <div class="upload-time">3 HOURS AGO</div>
                 </div>
                 <div class="add-comment">
@@ -150,6 +166,7 @@
 
     <script src="app.js"></script>
     <script src="../../routing/routing.js"></script>
+    <script src="../../modal-scripts.js"></script>
 </body>
 
 </html>
