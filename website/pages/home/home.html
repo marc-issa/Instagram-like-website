@@ -12,7 +12,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="home-styles.css">
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="../../styles.css">
 </head>
 
@@ -25,10 +25,6 @@
             <div class="dash-btn">
                 <div class="btn-icon"><img src="../../images/home-fill.png" class="icon-size"></div>
                 <div class="dash-text curr">Home</div>
-            </div>
-            <div class="dash-btn">
-                <div class="btn-icon"><img src="../../images/search.png" class="icon-size"></div>
-                <div class="dash-tex">Search</div>
             </div>
             <div class="dash-btn">
                 <div class="btn-icon"><img src="../../images/explore-outline.png" class="icon-size"></div>
@@ -46,7 +42,7 @@
                 <div class="btn-icon"><img src="../../images/add-icon.png" class="icon-size"></div>
                 <div class="dash-tex">Create</div>
             </div>
-            <div class="dash-btn">
+            <div class="dash-btn" onclick="profileRedirect()">
                 <div class="btn-icon"><img src="../../images/no-profile.png" class="profile-size"></div>
                 <div class="dash-tex">Profile</div>
             </div>
@@ -56,8 +52,35 @@
     <div class="empty-sec">
     </div>
     <div class="post-sec">
-
-
+        <div class="post-card">
+            <div class="post-header">
+                <img src="../../images/no-profile.png" class="post-profile-size">
+                <div class="post-user">username.1</div>
+            </div>
+            <img src="../../images/demo-img.jpg" class="post-img">
+            <div class="post-footer">
+                <div class="post-reaction">
+                    <img src="../../images/like-icon.png" class="reaction-icon">
+                    <img src="../../images/comment-icon.png" class="reaction-icon">
+                </div>
+                <div class="likes">199 likes</div>
+                <div class="caption">
+                    <div class="post-user">username.1</div>
+                    <div class="post-caption">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque deserunt
+                        enim est debitis consectetur corporis accusamus sed neque, placeat,
+                        voluptas temporibus quam, libero explicabo illum alias dolorum nulla! Consectetur, labore!</div>
+                </div>
+                <div class="stats">
+                    <a class="comment-count" href="">Viw all 90 comments</a>
+                    <div class="upload-time">3 HOURS AGO</div>
+                </div>
+                <div class="add-comment">
+                    <input type="text" class="comment-input" id="comment" placeholder="Add a comment..."
+                        onfocus="isTyping()">
+                    <a class="post-bt" id="comment-post-bt">POST</a>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="recomended-sec">
         <div class="stories-sec">
@@ -68,7 +91,7 @@
         </div>
     </div>
 
-    <script src="home-app.js"></script>
+    <script src="app.js"></script>
 </body>
 
 </html>
