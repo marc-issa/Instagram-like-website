@@ -7,12 +7,6 @@ body {
     justify-content: space-between;
 }
 
-.empty-sec {
-    flex-grow: 1.26;
-    height: 100%;
-    width: 25%;
-}
-
 .recomended-sec {
     flex-grow: .7;
     height: 100%;

@@ -5,33 +5,120 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="icon" type="image/png" href="../../images/logo.png">
     <title>Instagram</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="styles/profile-styles.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body>
-    <div class="container">
-        <div class="box1">
-            <button type="button" class="change-bt" onclick="homeRedirect()">Back</button>
+    <div class="dashboard">
+        <div class="logo-sec">
+            <img src="../../images/name-logo.png" class="logo" alt="Instagram">
         </div>
-        <div class="box2">
-            <h1>Profile</h1>
-            <input type="text" class="input-item" id="username" placeholder="Username">
-            <input type="text" class="input-item" id="fname" placeholder="First Name">
-            <input type="text" class="input-item" id="lname" placeholder="Last Name">
-            <input type="text" class="input-item" id="email" placeholder="Email">
-            <button type="button" class="change-bt" onclick="profileChange()">Submit</button>
+        <div class="btns-display">
+            <div class="dash-btn">
+                <div class="btn-icon"><img src="../../images/home-outline.png" class="icon-size"></div>
+                <div class="dash-text">Home</div>
+            </div>
+            <div class="dash-btn">
+                <div class="btn-icon"><img src="../../images/explore-outline.png" class="icon-size"></div>
+                <div class="dash-tex">Explore</div>
+            </div>
+            <div class="dash-btn">
+                <div class="btn-icon"><img src="../../images/dm-outline.png" class="icon-size"></div>
+                <div class="dash-tex">Messages</div>
+            </div>
+            <div class="dash-btn">
+                <div class="btn-icon"><img src="../../images/bell-outline.png" class="icon-size"></div>
+                <div class="dash-tex">Notifications</div>
+            </div>
+            <div class="dash-btn">
+                <div class="btn-icon"><img src="../../images/add-icon.png" class="icon-size"></div>
+                <div class="dash-tex">Create</div>
+            </div>
+            <div class="dash-btn" onclick="profileRedirect()">
+                <div class="btn-icon"><img src="../../images/no-profile.png" class="profile-size"></div>
+                <div class="dash-tex curr">Profile</div>
+            </div>
         </div>
-        <div class="box3">
 
+    </div>
+    <div class="empty-sec">
+
+    </div>
+    <div class="profile-sec">
+        <div class="profile-header">
+            <div class="profile-pic">
+                <img class="profile-pic-size" src="../../images/no-profile.png">
+            </div>
+            <div class="profile-stats">
+                <div class="row">
+                    <div class="profile-username">
+                        username.1
+                    </div>
+                    <a href="#" class="bt edit-bt" id="edit-bt">Edit profile</a>
+                    <a href="#" class="bt follow-bt" id="follow-bt">Follow</a>
+                    <a href="#" class="bt message-bt" id="message-bt">Message</a>
+                    <a href="#" class="bt block-bt" id="block-bt">Block</a>
+                </div>
+                <div class="row">
+                    <div class="posts-count">0 posts</div>
+                    <div class="followers-count">0 followers</div>
+                    <div class="following-count">0 following</div>
+                </div>
+                <div class="row">
+                    <div class="full-name">Username username</div>
+                </div>
+                <div class="row">
+                    <div class="bio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, cumque quidem error
+                        unde eos nam,
+                        adipisci et tempora harum nemo.</div>
+                </div>
+            </div>
+        </div>
+        <hr class="line">
+        <div class="posts-header">
+            <div class="posts-header-text">
+                Posts
+            </div>
+        </div>
+        <div class="profile-posts">
+
+            <div class="post-display">
+                <img src="../../images/demo-img.jpg" class="profile-post-size">
+            </div>
+            <div class="post-display">
+                <img src="../../images/demo-img.jpg" class="profile-post-size">
+            </div>
+            <div class="post-display">
+                <img src="../../images/demo-img.jpg" class="profile-post-size">
+            </div>
+            <div class="post-display">
+                <img src="../../images/demo-img.jpg" class="profile-post-size">
+            </div>
+            <div class="post-display">
+                <img src="../../images/demo-img.jpg" class="profile-post-size">
+            </div>
+            <div class="post-display">
+                <img src="../../images/demo-img.jpg" class="profile-post-size">
+            </div>
+            <div class="post-display">
+                <img src="../../images/demo-img.jpg" class="profile-post-size">
+            </div>
+            <div class="post-display">
+                <img src="../../images/demo-img.jpg" class="profile-post-size">
+            </div>
         </div>
     </div>
+    <div class="right-sec">
+    </div>
+
     <script src="scripts/profile-app.js"></script>
 </body>
 
