@@ -15,6 +15,7 @@ function viewStorie() {
 
     modal.classList.add('active');
     modal.classList.add('storie');
+    storie_modal.classList.add('active')
 
     disableScrolling();
 }
@@ -27,6 +28,7 @@ function closeModal() {
     modal.classList.remove('active');
     modal.classList.remove('post');
     modal.classList.remove('storie');
+    storie_modal.classList.remove('active')
     post_modal.classList.remove('active');
 
     enableScrolling();
