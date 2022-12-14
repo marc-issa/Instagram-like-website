@@ -1,5 +1,6 @@
-const uploaded_img = document.getElementById("uploaded-img");
-
+//**********************************
+//     Modal Design Controls
+//**********************************
 function viewPost() {
     const modal = document.getElementById("modal");
     const post_modal = document.getElementById("modal-post");
@@ -59,6 +60,8 @@ function closeNotif() {
     modal.classList.remove('notif');
     bt_link.classList.remove("deactivate-bt")
 
+    enableScrolling();
+
 }
 
 function closeModal() {
@@ -88,6 +91,7 @@ function closeModal() {
     resetCounter();
 }
 
+// disable/enable scrolling
 function disableScrolling() {
     let x = window.scrollX;
     let y = window.scrollY;
@@ -98,6 +102,7 @@ function enableScrolling() {
     window.onscroll = function () { };
 }
 
+// Image uploading and deleting in Add Modal
 function addUploadedImg() {
     let reader = new FileReader()
 
@@ -138,12 +143,19 @@ function deleteImg() {
     sec_footer.classList.remove("deactivate-upload-footer")
 }
 
-function charCounter() {
-    const caption_input = document.getElementById("caption-input");
-    const char_counter = document.getElementById("char-counter");
+// Caption Charachters counter
+function charCounter(input_id, display_id, num) {
+    const input = document.getElementById(input_id);
+    const counter_display = document.getElementById(display_id);
 
-    char_counter.style.color = "000005";
-    char_counter.innerHTML = `${caption_input.value.length}`;
+    let str_len = input.value.length;
+
+    if (str_len > num) {
+        counter_display.style.color = "red";
+    } else {
+        counter_display.style.color = "#000005";
+    }
+    counter_display.innerHTML = `${str_len}/${num}`;
 }
 
 function resetCounter() {

@@ -202,14 +202,24 @@
                         </div>
                     </div>
                     <textarea rows="5" id="caption-input" class="caption-input" placeholder="Write a caption..."
-                        oninput="charCounter(event)"></textarea>
-                    <span class="char-counter" id="char-counter">0</span>
+                        oninput="charCounter('caption-input','char-counter',300)"></textarea>
+                    <span class="char-counter" id="char-counter">0/300</span>
                 </div>
             </div>
         </div>
         <!-- Delete account Modal -->
         <div class="modal-delete" id="modal-delete">
-
+            <div class="delete-header">
+                Are you sure you want to delete your account?
+            </div>
+            <div class="btns-sec">
+                <div class="delete-button">
+                    Delete
+                </div>
+                <div class="cancel-button" onclick="closeDelete()">
+                    Cancel
+                </div>
+            </div>
         </div>
     </div>
 
@@ -266,8 +276,9 @@
                         Bio
                     </div>
                     <div class="edit-col">
-                        <textarea name="" id="" rows="4" class="edit-input textarea-input" id="bio-input"></textarea>
-                        <span class="char-counter" id="char-counter">0/150</span>
+                        <textarea id="bio-input" rows="4" class="edit-input textarea-input" id="bio-input"
+                            oninput="charCounter('bio-input','char-num', 150)"></textarea>
+                        <span class="char-counter" id="char-num">0/150</span>
                         <div class="edit-instr">
                             <b>Personal information</b>
                             <br>
