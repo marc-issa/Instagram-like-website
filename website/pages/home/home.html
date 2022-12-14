@@ -35,7 +35,7 @@
                 <div class="btn-icon"><img src="../../images/dm-outline.png" class="icon-size"></div>
                 <div class="dash-tex">Messages</div>
             </div>
-            <div class="dash-btn">
+            <div class="dash-btn" onclick="viewNotif()">
                 <div class="btn-icon"><img src="../../images/bell-outline.png" class="icon-size"></div>
                 <div class="dash-tex">Notifications</div>
             </div>
@@ -51,7 +51,7 @@
 
     </div>
     <div class="modal" id="modal">
-        <a onclick="closeModal()" class="close-bt-link"><img src="../../images/close-btn.png" alt=""
+        <a onclick="closeModal()" class="close-bt-link" id="close-bt-link"><img src="../../images/close-btn.png" alt=""
                 class="close-button"></a>
         <div class="modal-post" id="modal-post">
             <div class="modal-post-img">
@@ -91,7 +91,82 @@
                 <img src="../../images/demo-img.jpg" class="img-storie">
             </div>
         </div>
+
+        <div class="modal-notif" id="modal-notif">
+            <div class="notif-header">
+                Notifications
+                <a onclick="closeNotif()" class="close-bt-notif" id="close-bt-notif"><img
+                        src="../../images/close-black.png" alt=""></a>
+            </div>
+
+            <div class="notif-content">
+                <div class="notif-item">
+                    <div class="notif-message">
+                        <img src="../../images/no-profile.png" alt="" class="post-profile">
+                        <div class="username-post">username.1</div>
+                        <div class="notif-text">
+                            started following you.
+                        </div>
+                    </div>
+                </div>
+                <div class="notif-item">
+                    <div class="notif-message">
+                        <img src="../../images/no-profile.png" alt="" class="post-profile">
+                        <div class="username-post">username.1</div>
+                        <div class="notif-text">
+                            commented on your post.
+                        </div>
+                    </div>
+                </div>
+                <div class="notif-item">
+                    <div class="notif-message">
+                        <img src="../../images/no-profile.png" alt="" class="post-profile">
+                        <div class="username-post">username.1</div>
+                        <div class="notif-text">
+                            liked your post.
+                        </div>
+                    </div>
+                </div>
+                <div class="notif-item">
+                    <div class="notif-message">
+                        <img src="../../images/no-profile.png" alt="" class="post-profile">
+                        <div class="username-post">username.1</div>
+                        <div class="notif-text">
+                            sent you a message.
+                        </div>
+                    </div>
+                </div>
+                <div class="notif-item">
+                    <div class="notif-message">
+                        <img src="../../images/no-profile.png" alt="" class="post-profile">
+                        <div class="username-post">username.1</div>
+                        <div class="notif-text">
+                            sent you a message.
+                        </div>
+                    </div>
+                </div>
+                <div class="notif-item">
+                    <div class="notif-message">
+                        <img src="../../images/no-profile.png" alt="" class="post-profile">
+                        <div class="username-post">username.1</div>
+                        <div class="notif-text">
+                            sent you a message.
+                        </div>
+                    </div>
+                </div>
+                <div class="notif-item">
+                    <div class="notif-message">
+                        <img src="../../images/no-profile.png" alt="" class="post-profile">
+                        <div class="username-post">username.1</div>
+                        <div class="notif-text">
+                            sent you a message.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
 
     <div class="empty-sec">
     </div>
