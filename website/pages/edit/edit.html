@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../../images/logo.png">
+    <title>Instagram</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body>
+    <div class="dashboard">
+        <div class="logo-sec">
+            <img src="../../images/name-logo.png" class="logo" alt="Instagram" onclick="homeRedirect()">
+        </div>
+        <div class="btns-display">
+            <div class="dash-btn" onclick="homeRedirect()">
+                <div class="btn-icon"><img src="../../images/home-fill.png" class="icon-size">
+                </div>
+                <div class="dash-text curr">Home</div>
+            </div>
+            <div class="dash-btn" onclick="exploreRedirect()">
+                <div class="btn-icon"><img src="../../images/explore-outline.png" class="icon-size"></div>
+                <div class="dash-tex">Explore</div>
+            </div>
+            <div class="dash-btn" onclick="chatRedirect()">
+                <div class="btn-icon"><img src="../../images/dm-outline.png" class="icon-size"></div>
+                <div class="dash-tex">Messages</div>
+            </div>
+            <div class="dash-btn" onclick="viewNotif()">
+                <div class="btn-icon"><img src="../../images/bell-outline.png" class="icon-size"></div>
+                <div class="dash-tex">Notifications</div>
+            </div>
+            <div class="dash-btn" onclick="viewAdd()">
+                <div class="btn-icon"><img src="../../images/add-icon.png" class="icon-size"></div>
+                <div class="dash-tex">Create</div>
+            </div>
+            <div class="dash-btn" onclick="profileRedirect()">
+                <div class="btn-icon"><img src="../../images/no-profile.png" class="profile-size"></div>
+                <div class="dash-tex">Profile</div>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal" id="modal">
+        <a onclick="closeModal()" class="close-bt-link" id="close-bt-link"><img src="../../images/close-btn.png" alt=""
+                class="close-button"></a>
+        <!-- Post Modal -->
+        <div class="modal-post" id="modal-post">
+            <div class="modal-post-img">
+                <img src="../../images/demo-img.jpg" class="modal-post-img-size">
+            </div>
+            <div class="modal-comment-sec">
+                <div class="comment-sec-header">
+                    <img src="../../images/no-profile.png" alt="" class="post-profile" onclick="profileRedirect()">
+                    <div class="username-post" onclick="profileRedirect()">
+                        username.1
+                    </div>
+                </div>
+                <div class="comment-sec-content">
+                    <div class="comment-item">
+                        <div class="username-comment" onclick="profileRedirect()">
+                            username.1
+                        </div>
+                        <div class="comment-content">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus optio debitis
+                            ratione, incidunt quod aut quaerat excepturi doloremque.
+                        </div>
+                    </div>
+                </div>
+                <div class="comment-sec-footer">
+                    <input type="text" class="post-comment-input" placeholder="Add a comment...">
+                    <a class="post-comment">Post</a>
+                </div>
+            </div>
+        </div>
+        <!-- Storie Modal -->
+        <div class="modal-storie" id="modal-storie">
+            <div class="storie-content">
+                <div class="storie-header">
+                    <img src="../../images/no-profile.png" class="post-profile" onclick="profileRedirect()">
+                    <div class="username-post username-storie" onclick="profileRedirect()">username.1</div>
+                    <div class="storie-time">9h</div>
+                </div>
+                <img src="../../images/demo-img.jpg" class="img-storie">
+            </div>
+        </div>
+        <!-- Notification Modal -->
+        <div class="modal-notif" id="modal-notif">
+            <div class="notif-header">
+                Notifications
+                <a onclick="closeNotif()" class="close-bt-notif" id="close-bt-notif"><img
+                        src="../../images/close-black.png" alt=""></a>
+            </div>
+
+            <div class="notif-content">
+                <div class="notif-item">
+                    <div class="notif-message">
+                        <img src="../../images/no-profile.png" alt="" class="post-profile">
+                        <div class="username-post">username.1</div>
+                        <div class="notif-text">
+                            started following you.
+                        </div>
+                    </div>
+                </div>
+                <div class="notif-item">
+                    <div class="notif-message">
+                        <img src="../../images/no-profile.png" alt="" class="post-profile">
+                        <div class="username-post">username.1</div>
+                        <div class="notif-text">
+                            commented on your post.
+                        </div>
+                    </div>
+                </div>
+                <div class="notif-item">
+                    <div class="notif-message">
+                        <img src="../../images/no-profile.png" alt="" class="post-profile">
+                        <div class="username-post">username.1</div>
+                        <div class="notif-text">
+                            liked your post.
+                        </div>
+                    </div>
+                </div>
+                <div class="notif-item">
+                    <div class="notif-message">
+                        <img src="../../images/no-profile.png" alt="" class="post-profile">
+                        <div class="username-post">username.1</div>
+                        <div class="notif-text">
+                            sent you a message.
+                        </div>
+                    </div>
+                </div>
+                <div class="notif-item">
+                    <div class="notif-message">
+                        <img src="../../images/no-profile.png" alt="" class="post-profile">
+                        <div class="username-post">username.1</div>
+                        <div class="notif-text">
+                            sent you a message.
+                        </div>
+                    </div>
+                </div>
+                <div class="notif-item">
+                    <div class="notif-message">
+                        <img src="../../images/no-profile.png" alt="" class="post-profile">
+                        <div class="username-post">username.1</div>
+                        <div class="notif-text">
+                            sent you a message.
+                        </div>
+                    </div>
+                </div>
+                <div class="notif-item">
+                    <div class="notif-message">
+                        <img src="../../images/no-profile.png" alt="" class="post-profile">
+                        <div class="username-post">username.1</div>
+                        <div class="notif-text">
+                            sent you a message.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Add Post Modal -->
+        <div class="modal-add" id="modal-add">
+            <div class="add-header">
+                <div class="delete-icon" id="delete-icon" onclick="deleteImg()">
+                    <img src="../../images/delete-outline.png">
+                </div>
+                <div class="header-text">
+                    Create new post
+                </div>
+                <div class="share-bt" id="share-bt">
+                    Share
+                </div>
+            </div>
+            <div class="add-content">
+                <div class="add-img">
+                    <div class="upload-sec">
+                        <img src="" alt="Uploaded Image" class="uploaded-img" id="uploaded-img">
+                        <div class="upload-sec-footer" id="upload-sec-footer">
+                            <div class="upload-text">
+                                Select photos here
+                            </div>
+                            <input type="file" accept=".png, .jpg, .jpeg" id="uploaded-img-input"
+                                class="uploaded-img-input" oninput="addUploadedImg()">
+                            <a class="upload-img-bt">Select from computer</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="add-caption">
+                    <div class="caption-header">
+                        <img src="../../images/no-profile.png" alt="" class="post-profile" onclick="profileRedirect()">
+                        <div class="username-post" onclick="profileRedirect()">
+                            username.1
+                        </div>
+                    </div>
+                    <textarea rows="5" id="caption-input" class="caption-input" placeholder="Write a caption..."
+                        oninput="charCounter(event)"></textarea>
+                    <span class="char-counter" id="char-counter">0</span>
+                </div>
+            </div>
+        </div>
+        <!-- Delete account Modal -->
+        <div class="modal-delete" id="modal-delete">
+
+        </div>
+    </div>
+
+    <div class="empty-sec">
+    </div>
+    <div class="edit-sec">
+        <div class="edit-card">
+            <div class="edit-options">
+                <div class="option-item">
+                    Edit profile
+                </div>
+                <div class="option-item">
+                    Change password
+                </div>
+            </div>
+            <div class="edit-content" id="edit-content">
+                <div class="edit-item">
+                    <img src="../../images/no-profile.png" alt="" class="profile-pic">
+                    <div class="edit-col">
+                        <div class="username">
+                            username.1
+                        </div>
+                        <input type="file" id="pic-input" class="pic-input">
+                        <div class="change-profile-bt">
+                            Change profile photo
+                        </div>
+                    </div>
+                </div>
+                <div class="edit-item">
+                    <div class="edit-label">
+                        Name
+                    </div>
+                    <div class="edit-col">
+                        <input type="text" class="edit-input">
+                        <div class="edit-instr">
+                            Help people discover your account by using the name you're known by: either your full name,
+                            nickname, or business name.
+                        </div>
+                    </div>
+                </div>
+                <div class="edit-item">
+                    <div class="edit-label">
+                        Username
+                    </div>
+                    <div class="edit-col mg-r">
+                        <input type="text" class="edit-input">
+                        <div class="edit-instr">
+                            In most cases, you'll be able to change your username back to marc_issaaa
+                        </div>
+                    </div>
+                </div>
+                <div class="edit-item">
+                    <div class="edit-label mg-r">
+                        Bio
+                    </div>
+                    <div class="edit-col">
+                        <textarea name="" id="" rows="4" class="edit-input textarea-input" id="bio-input"></textarea>
+                        <span class="char-counter" id="char-counter">0/150</span>
+                        <div class="edit-instr">
+                            <b>Personal information</b>
+                            <br>
+                            Provide your personal information, even if the account is used for a business, a pet or
+                            something else. This won't be a part of your public profile.
+                        </div>
+                    </div>
+                </div>
+                <div class="edit-item pd-c">
+                    <div class="edit-label">
+                        Email
+                    </div>
+                    <div class="edit-col">
+                        <input type="text" class="edit-input">
+                    </div>
+                </div>
+                <div class="edit-item">
+                    <div class="edit-label">
+                        Gender
+                    </div>
+                    <div class="edit-col mg-r-c">
+                        <select class="edit-input input-h">
+                            <option value="None" selected disabled hidden>Select a gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="female">Prefer not to say</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="edit-item">
+                    <div class="edit-footer">
+                        <button type="button" class="submit-bt">Submit</button>
+                        <div class="delete-account-bt" onclick="deleteAccount()">
+                            Delete my account
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../modal-scripts.js"></script>
+    <script src="../../routing/routing.js"></script>
+    <script src="app.js"></script>
+</body>

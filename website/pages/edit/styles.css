@@ -1,0 +1,168 @@
+.edit-sec {
+    padding-right: 15%;
+    width: 60%;
+}
+
+.edit-card {
+    width: 100%;
+    display: flex;
+    margin-top: 2em;
+}
+
+.edit-options {
+    background-color: white;
+    width: 30%;
+    border-top: 1px solid #DEE2E6;
+    border-left: 1px solid #DEE2E6;
+    border-bottom: 1px solid #DEE2E6;
+}
+
+.option-item {
+    padding: 1em;
+    cursor: pointer;
+    font-weight: 300;
+}
+
+.option-item:hover {
+    background-color: rgb(0, 0, 0, .05);
+    border-left: 2px solid rgb(0, 0, 0, .1);
+}
+
+/* ***********Active Option************* */
+
+.active-option {
+    border-left: 2px solid black;
+    font-weight: 400;
+}
+
+.active-option:hover {
+    border-left: 2px solid black;
+    cursor: default;
+    background-color: white;
+}
+
+/* ************************************ */
+
+.edit-content {
+    background-color: white;
+    border: 1px solid #DEE2E6;
+
+    padding: 1em;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.edit-item {
+    padding: 1em;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+}
+
+.profile-pic {
+    max-width: 50px;
+    max-height: 50px;
+    border-radius: 100%;
+}
+
+.edit-col {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 1em;
+}
+
+.username {
+    font-size: 1.25em;
+}
+
+.change-profile-bt {
+    font-size: .9em;
+    color: rgba(0, 149, 246, 1);
+    font-weight: 500;
+}
+
+.pic-input {
+    position: fixed;
+    transform: translate(0, 50%);
+    opacity: 0;
+}
+
+.edit-label {
+    font-weight: 500;
+}
+
+.edit-input {
+    height: 1.6em;
+    border: 1px solid #c5c8cc;
+    border-radius: 5px;
+}
+
+.edit-instr {
+    font-size: .75em;
+    margin-top: 1em;
+    color: rgb(0, 0, 0, .5);
+}
+
+.mg-r {
+    margin-right: 1.5em;
+}
+
+.mg-r-c {
+    margin-right: .9em;
+}
+
+.no-mg {
+    margin: 0;
+}
+
+.pd-c {
+    padding: 0em;
+}
+
+.input-h {
+    height: 1.5em;
+}
+
+.textarea-input {
+    max-width: 100%;
+}
+
+.char-counter {
+    margin-top: .5em;
+    color: rgb(0, 0, 0, .5)
+}
+
+.edit-footer {
+    width: 65%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.submit-bt {
+    border: 0;
+    padding: .5em .8em;
+    border-radius: 3px;
+    font-weight: 600;
+    font-size: .9em;
+    color: white;
+    background-color: #0095f6;
+}
+
+.delete-account-bt {
+    color: rgba(255, 0, 0, .7);
+    font-weight: 500;
+    font-size: .9em;
+
+    cursor: pointer;
+}
+
+/* ******************************
+       Delete Account Modal 
+   *******************************/
