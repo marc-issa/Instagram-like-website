@@ -23,19 +23,19 @@
         </div>
         <div class="btns-display">
             <div class="dash-btn" onclick="homeRedirect()">
-                <div class="btn-icon"><img src="../../images/home-outline.png" class="icon-size">
+                <div class="btn-icon"><img src="../../images/home-fill.png" class="icon-size">
                 </div>
-                <div class="dash-text">Home</div>
+                <div class="dash-text curr">Home</div>
             </div>
             <div class="dash-btn" onclick="exploreRedirect()">
-                <div class="btn-icon"><img src="../../images/explore-fill.png" class="icon-size"></div>
-                <div class="dash-tex curr">Explore</div>
+                <div class="btn-icon"><img src="../../images/explore-outline.png" class="icon-size"></div>
+                <div class="dash-tex">Explore</div>
             </div>
             <div class="dash-btn" onclick="chatRedirect()">
                 <div class="btn-icon"><img src="../../images/dm-outline.png" class="icon-size"></div>
                 <div class="dash-tex">Messages</div>
             </div>
-            <div class="dash-btn">
+            <div class="dash-btn" onclick="viewNotif()">
                 <div class="btn-icon"><img src="../../images/bell-outline.png" class="icon-size"></div>
                 <div class="dash-tex">Notifications</div>
             </div>
@@ -50,7 +50,6 @@
         </div>
 
     </div>
-    <div class="empty-sec"></div>
     <div class="modal" id="modal">
         <a onclick="closeModal()" class="close-bt-link" id="close-bt-link"><img src="../../images/close-btn.png" alt=""
                 class="close-button"></a>
@@ -167,6 +166,8 @@
             </div>
         </div>
     </div>
+
+    <div class="empty-sec"></div>
     <div class="explore-sec">
         <div class="search-bar">
             <input type="text" class="search-input" placeholder="Search">

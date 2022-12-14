@@ -17,15 +17,16 @@
 </head>
 
 <body>
+
     <div class="dashboard">
         <div class="logo-sec">
             <img src="../../images/name-logo.png" class="logo" alt="Instagram" onclick="homeRedirect()">
         </div>
         <div class="btns-display">
             <div class="dash-btn" onclick="homeRedirect()">
-                <div class="btn-icon"><img src="../../images/home-outline.png" class="icon-size">
+                <div class="btn-icon"><img src="../../images/home-fill.png" class="icon-size">
                 </div>
-                <div class="dash-text">Home</div>
+                <div class="dash-text curr">Home</div>
             </div>
             <div class="dash-btn" onclick="exploreRedirect()">
                 <div class="btn-icon"><img src="../../images/explore-outline.png" class="icon-size"></div>
@@ -35,7 +36,7 @@
                 <div class="btn-icon"><img src="../../images/dm-outline.png" class="icon-size"></div>
                 <div class="dash-tex">Messages</div>
             </div>
-            <div class="dash-btn">
+            <div class="dash-btn" onclick="viewNotif()">
                 <div class="btn-icon"><img src="../../images/bell-outline.png" class="icon-size"></div>
                 <div class="dash-tex">Notifications</div>
             </div>
@@ -45,7 +46,7 @@
             </div>
             <div class="dash-btn" onclick="profileRedirect()">
                 <div class="btn-icon"><img src="../../images/no-profile.png" class="profile-size"></div>
-                <div class="dash-tex curr">Profile</div>
+                <div class="dash-tex">Profile</div>
             </div>
         </div>
 
@@ -166,6 +167,7 @@
             </div>
         </div>
     </div>
+
     <div class="empty-sec">
 
     </div>
