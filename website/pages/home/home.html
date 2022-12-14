@@ -39,7 +39,7 @@
                 <div class="btn-icon"><img src="../../images/bell-outline.png" class="icon-size"></div>
                 <div class="dash-tex">Notifications</div>
             </div>
-            <div class="dash-btn">
+            <div class="dash-btn" onclick="viewAdd()">
                 <div class="btn-icon"><img src="../../images/add-icon.png" class="icon-size"></div>
                 <div class="dash-tex">Create</div>
             </div>
@@ -53,6 +53,7 @@
     <div class="modal" id="modal">
         <a onclick="closeModal()" class="close-bt-link" id="close-bt-link"><img src="../../images/close-btn.png" alt=""
                 class="close-button"></a>
+        <!-- Post Modal -->
         <div class="modal-post" id="modal-post">
             <div class="modal-post-img">
                 <img src="../../images/demo-img.jpg" class="modal-post-img-size">
@@ -81,6 +82,7 @@
                 </div>
             </div>
         </div>
+        <!-- Storie Modal -->
         <div class="modal-storie" id="modal-storie">
             <div class="storie-content">
                 <div class="storie-header">
@@ -91,7 +93,7 @@
                 <img src="../../images/demo-img.jpg" class="img-storie">
             </div>
         </div>
-
+        <!-- Notification Modal -->
         <div class="modal-notif" id="modal-notif">
             <div class="notif-header">
                 Notifications
@@ -162,6 +164,46 @@
                             sent you a message.
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+        <!-- Add Post Modal -->
+        <div class="modal-add" id="modal-add">
+            <div class="add-header">
+                <div class="delete-icon" id="delete-icon" onclick="deleteImg()">
+                    <img src="../../images/delete-outline.png">
+                </div>
+                <div class="header-text">
+                    Create new post
+                </div>
+                <div class="share-bt" id="share-bt">
+                    Share
+                </div>
+            </div>
+            <div class="add-content">
+                <div class="add-img">
+                    <div class="upload-sec">
+                        <img src="" alt="Uploaded Image" class="uploaded-img" id="uploaded-img">
+                        <div class="upload-sec-footer" id="upload-sec-footer">
+                            <div class="upload-text">
+                                Select photos here
+                            </div>
+                            <input type="file" accept=".png, .jpg, .jpeg" id="uploaded-img-input"
+                                class="uploaded-img-input" oninput="addUploadedImg()">
+                            <a class="upload-img-bt">Select from computer</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="add-caption">
+                    <div class="caption-header">
+                        <img src="../../images/no-profile.png" alt="" class="post-profile" onclick="profileRedirect()">
+                        <div class="username-post" onclick="profileRedirect()">
+                            username.1
+                        </div>
+                    </div>
+                    <textarea rows="5" id="caption-input" class="caption-input" placeholder="Write a caption..."
+                        oninput="charCounter(event)"></textarea>
+                    <span class="char-counter" id="char-counter">0</span>
                 </div>
             </div>
         </div>
