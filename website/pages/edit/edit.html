@@ -23,9 +23,9 @@
         </div>
         <div class="btns-display">
             <div class="dash-btn" onclick="homeRedirect()">
-                <div class="btn-icon"><img src="../../images/home-fill.png" class="icon-size">
+                <div class="btn-icon"><img src="../../images/home-outline.png" class="icon-size">
                 </div>
-                <div class="dash-text curr">Home</div>
+                <div class="dash-text">Home</div>
             </div>
             <div class="dash-btn" onclick="exploreRedirect()">
                 <div class="btn-icon"><img src="../../images/explore-outline.png" class="icon-size"></div>
@@ -228,91 +228,133 @@
     <div class="edit-sec">
         <div class="edit-card">
             <div class="edit-options">
-                <div class="option-item">
+                <div class="option-item" id="edit-profile" onclick="changeContent(0)">
                     Edit profile
                 </div>
-                <div class="option-item">
+                <div class="option-item" id="change-password" onclick="changeContent(1)">
                     Change password
                 </div>
             </div>
             <div class="edit-content" id="edit-content">
-                <div class="edit-item">
-                    <img src="../../images/no-profile.png" alt="" class="profile-pic">
-                    <div class="edit-col">
-                        <div class="username">
-                            username.1
-                        </div>
-                        <input type="file" id="pic-input" class="pic-input">
-                        <div class="change-profile-bt">
-                            Change profile photo
-                        </div>
-                    </div>
-                </div>
-                <div class="edit-item">
-                    <div class="edit-label">
-                        Name
-                    </div>
-                    <div class="edit-col">
-                        <input type="text" class="edit-input">
-                        <div class="edit-instr">
-                            Help people discover your account by using the name you're known by: either your full name,
-                            nickname, or business name.
+                <div class="profile-display" id="profile-display">
+                    <div class="edit-item">
+                        <img src="../../images/no-profile.png" alt="" class="profile-pic">
+                        <div class="edit-col">
+                            <div class="username">
+                                username.1
+                            </div>
+                            <input type="file" id="pic-input" class="pic-input">
+                            <div class="change-profile-bt">
+                                Change profile photo
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="edit-item">
-                    <div class="edit-label">
-                        Username
+                    <div class="edit-item">
+                        <div class="edit-label">
+                            Name
+                        </div>
+                        <div class="edit-col">
+                            <input type="text" class="edit-input">
+                            <div class="edit-instr">
+                                Help people discover your account by using the name you're known by: either your full
+                                name,
+                                nickname, or business name.
+                            </div>
+                        </div>
                     </div>
-                    <div class="edit-col mg-r">
-                        <input type="text" class="edit-input">
-                        <div class="edit-instr">
-                            In most cases, you'll be able to change your username back to marc_issaaa
+                    <div class="edit-item">
+                        <div class="edit-label">
+                            Username
+                        </div>
+                        <div class="edit-col mg-r">
+                            <input type="text" class="edit-input">
+                            <div class="edit-instr">
+                                In most cases, you'll be able to change your username back to marc_issaaa
+                            </div>
+                        </div>
+                    </div>
+                    <div class="edit-item">
+                        <div class="edit-label mg-r">
+                            Bio
+                        </div>
+                        <div class="edit-col">
+                            <textarea id="bio-input" rows="4" class="edit-input textarea-input" id="bio-input"
+                                oninput="charCounter('bio-input','char-num', 150)"></textarea>
+                            <span class="char-counter" id="char-num">0/150</span>
+                            <div class="edit-instr">
+                                <b>Personal information</b>
+                                <br>
+                                Provide your personal information, even if the account is used for a business, a pet or
+                                something else. This won't be a part of your public profile.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="edit-item pd-c">
+                        <div class="edit-label">
+                            Email
+                        </div>
+                        <div class="edit-col">
+                            <input type="text" class="edit-input">
+                        </div>
+                    </div>
+                    <div class="edit-item">
+                        <div class="edit-label">
+                            Gender
+                        </div>
+                        <div class="edit-col mg-r-c">
+                            <select class="edit-input input-h">
+                                <option value="None" selected disabled hidden>Select a gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="female">Prefer not to say</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="edit-item">
+                        <div class="edit-footer">
+                            <button type="button" class="submit-bt">Submit</button>
+                            <div class="delete-account-bt" onclick="deleteAccount()">
+                                Delete my account
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="edit-item">
-                    <div class="edit-label mg-r">
-                        Bio
-                    </div>
-                    <div class="edit-col">
-                        <textarea id="bio-input" rows="4" class="edit-input textarea-input" id="bio-input"
-                            oninput="charCounter('bio-input','char-num', 150)"></textarea>
-                        <span class="char-counter" id="char-num">0/150</span>
-                        <div class="edit-instr">
-                            <b>Personal information</b>
-                            <br>
-                            Provide your personal information, even if the account is used for a business, a pet or
-                            something else. This won't be a part of your public profile.
+                <div class="change-display" id="change-display">
+                    <div class="edit-item">
+                        <img src="../../images/no-profile.png" alt="" class="profile-pic">
+                        <div class="edit-col">
+                            <div class="username">
+                                username.1
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="edit-item pd-c">
-                    <div class="edit-label">
-                        Email
+                    <div class="edit-item pd-c mg-c">
+                        <div class="edit-label">
+                            Old password
+                        </div>
+                        <div class="edit-col">
+                            <input type="text" class="edit-input">
+                        </div>
                     </div>
-                    <div class="edit-col">
-                        <input type="text" class="edit-input">
+                    <div class="edit-item pd-c mg-c">
+                        <div class="edit-label mg-r-n">
+                            New password
+                        </div>
+                        <div class="edit-col">
+                            <input type="text" class="edit-input">
+                        </div>
                     </div>
-                </div>
-                <div class="edit-item">
-                    <div class="edit-label">
-                        Gender
+                    <div class="edit-item pd-c mg-c">
+                        <div class="edit-label mg-r-p">
+                            Confirm password
+                        </div>
+                        <div class="edit-col">
+                            <input type="text" class="edit-input">
+                        </div>
                     </div>
-                    <div class="edit-col mg-r-c">
-                        <select class="edit-input input-h">
-                            <option value="None" selected disabled hidden>Select a gender</option>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                            <option value="female">Prefer not to say</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="edit-item">
-                    <div class="edit-footer">
-                        <button type="button" class="submit-bt">Submit</button>
-                        <div class="delete-account-bt" onclick="deleteAccount()">
-                            Delete my account
+                    <div class="edit-item align-right">
+                        <div class="edit-footer">
+                            <button type="button" class="submit-bt">Change password</button>
                         </div>
                     </div>
                 </div>

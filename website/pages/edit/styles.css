@@ -28,21 +28,6 @@
     border-left: 2px solid rgb(0, 0, 0, .1);
 }
 
-/* ***********Active Option************* */
-
-.active-option {
-    border-left: 2px solid black;
-    font-weight: 400;
-}
-
-.active-option:hover {
-    border-left: 2px solid black;
-    cursor: default;
-    background-color: white;
-}
-
-/* ************************************ */
-
 .edit-content {
     background-color: white;
     border: 1px solid #DEE2E6;
@@ -53,6 +38,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+/* ******************************** */
+/*          Profile display         */
+/* ******************************** */
+
+.profile-display {
+    opacity: 0;
+    pointer-events: none;
+
+    height: 35em;
 }
 
 .edit-item {
@@ -164,6 +160,36 @@
 }
 
 /* ****************************** */
+/*        Change password display */
+/* ****************************** */
+
+.change-display {
+    opacity: 0;
+    pointer-events: none;
+
+    height: 35em;
+
+    position: fixed;
+    width: 44.5%;
+}
+
+.mg-c {
+    margin-bottom: 1em;
+}
+
+.mg-r-n {
+    margin-left: -0.5em;
+}
+
+.mg-r-p {
+    margin-left: -2em;
+}
+
+.align-right {
+    justify-content: space-evenly;
+}
+
+/* ****************************** */
 /*      Delete Account Modal      */
 /* ****************************** */
 
@@ -238,3 +264,23 @@
 .cancel-button:hover {
     background-color: rgba(0, 0, 0, 0.05);
 }
+
+/* ***********    Active   ************* */
+
+.active-option {
+    border-left: 2px solid black;
+    font-weight: 400;
+}
+
+.active-option:hover {
+    border-left: 2px solid black;
+    cursor: default;
+    background-color: white;
+}
+
+.active-display {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* ************************************ */
