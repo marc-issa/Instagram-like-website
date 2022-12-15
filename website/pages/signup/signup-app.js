@@ -1,71 +1,76 @@
-let signup_form = document.getElementById("signup-form");
-let h5 = document.createElement("h5");
-h5.style.color = "red";
-signup_form.appendChild(h5);
+const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
-let handleSignup = () => {
-    let username = document.getElementById("username-input-box");
-    let fname = document.getElementById("fname-input-box");
-    let lname = document.getElementById("lname-input-box");
-    let email = document.getElementById("email-input-box")
-    let password = document.getElementById("password-input-box");
+const email = document.getElementById("email");
+const fname = document.getElementById("fname");
+const username = document.getElementById("username");
+const password = document.getElementById("password");
 
-    h5.textContent = "";
-    username.style.borderColor = "#DEE2E6";
-    email.style.borderColor = "#DEE2E6";
-    password.style.borderColor = "#DEE2E6";
-    fname.style.borderColor = "#DEE2E6";
-    lname.style.borderColor = "#DEE2E6";
+const error_email = document.getElementById("error-email");
+const error_fname = document.getElementById("error-fname");
+const error_username = document.getElementById("error-username");
+const error_password = document.getElementById("error-password");
 
+function handleSubmit() {
+    resetInput();
 
-    if (username.value == "") {
-        username.style.borderColor = "red";
-        h5.textContent = "Missing fields";
-    }
-    else if (fname.value == "") {
-        fname.style.borderColor = "red";
-        h5.textContent = "Missing fields";
-    }
-    else if (lname.value == "") {
-        lname.style.borderColor = "red";
-        h5.textContent = "Missing fields";
-    }
-    else if (email.value == "") {
-        email.style.borderColor = "red";
-        h5.textContent = "Missing fields";
-    }
-    else if (password.value == "") {
-        password.style.borderColor = "red";
-        h5.textContent = "Missing fields";
-    }
-    else {
-        let hashed_pwd = md5(password.value);
+    if (email.value == '') {
+        error_email.innerHTML = "Email required";
+        email.classList.add("error")
+    } else if (fname.value == '') {
+        error_fname.innerHTML = "Full name required";
+        fname.classList.add("error")
+    } else if (username.value == '') {
+        error_username.innerHTML = "Username required";
+        username.classList.add("error")
+    } else if (password.value == '') {
+        error_password.innerHTML = "Password required";
+        password.classList.add("error")
+    } else if (!email.value.match(regex)) {
+        error_email.innerHTML = "Enter valid email";
+        email.classList.add("error")
+    } else {
+        let args = new FormData();
+        args.append("email", email.value.toLowerCase());
+        args.append("full_name", fname.value.toLowerCase());
+        args.append("username", username.value.toLowerCase());
+        args.append("password", password.value.toLowerCase());
 
-        const xhr = new XMLHttpRequest();
+        args.append("name", "empty");
+        args.append("bio", "empty");
+        args.append("gender", "empty");
+        args.append("profile_img", "empty");
 
-        xhr.onload = function () {
-            let response = JSON.parse(this.responseText);
-            let res = response["resp"];
-
-            if (res == "username-found") {
-                username.style.borderColor = "red";
-                h5.textContent = "Username already exists";
-            }
-            else if (res == "email-found") {
-                email.style.borderColor = "red";
-                h5.textContent = "Email already exists";
-            }
-            else {
-                console.log(res);
-            }
-        }
-
-        xhr.open("POST", "../api/Auth/signup.php");
-        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhr.send(`username=${username.value}&pwd=${hashed_pwd}&first_name=${fname.value}&last_name=${lname.value}&email=${email.value}`);
+        axios({
+            method: 'post',
+            url: 'http://127.0.0.1:8000/api/v0.1/user/register',
+            data: args
+        })
+            .then(res => {
+                let resp = res["data"];
+                localStorage.setItem("token", resp["authorisation"]);
+                window.location.href = "http://localhost/Projects/Websites/Instagram-like-website/website/pages/home/home.html";
+            })
+            .catch(err => {
+                if (err.response.data.message == "username-exists") {
+                    error_username.innerHTML = "Username exists";
+                    username.classList.add("error")
+                }
+                if (err.response.data.message == "email-exists") {
+                    error_email.innerHTML = "Email exists";
+                    email.classList.add("error")
+                }
+            });
     }
 }
 
-let loginRedirect = () => {
-    window.location.href = "/Projects/Website/Instagram-like-website/website/";
+function resetInput() {
+    error_email.innerHTML = "";
+    error_fname.innerHTML = "";
+    error_username.innerHTML = "";
+    error_password.innerHTML = "";
+
+    email.classList.remove("error")
+    fname.classList.remove("error")
+    username.classList.remove("error")
+    password.classList.remove("error")
 }
