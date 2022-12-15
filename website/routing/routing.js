@@ -25,3 +25,8 @@ function editRedirect() {
 function loginRedirect() {
     window.location.href = "http://localhost/Projects/Websites/Instagram-like-website/website/pages/login/login.html";
 }
+
+let signupRedirect = () => {
+    window.location.href = "http://localhost/Projects/Websites/Instagram-like-website/website/pages/signup/signup.html";
+}
+

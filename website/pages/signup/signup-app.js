@@ -46,8 +46,9 @@ function handleSubmit() {
             data: args
         })
             .then(res => {
-                let resp = res["data"];
-                localStorage.setItem("token", resp["authorisation"]);
+                let resp = res.data.authorisation.token;
+                localStorage.setItem("token", "Bearer " + resp);
+                axios.defaults.headers.common["Authorization"] = "Bearer" + resp;
                 window.location.href = "http://localhost/Projects/Websites/Instagram-like-website/website/pages/home/home.html";
             })
             .catch(err => {

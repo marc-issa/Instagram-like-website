@@ -162,3 +162,12 @@ function resetCounter() {
     const char_counter = document.getElementById("char-counter");
     char_counter.innerHTML = "0";
 }
+
+function logout() {
+    axios.get('http://127.0.0.1:8000/api/v0.1/user/logout', { headers: { Authorization: localStorage.getItem('token') } })
+        .then(response => {
+            window.location.href = "http://localhost/Projects/Websites/Instagram-like-website/website/pages/login/login.html";
+            localStorage.removeItem("token")
+        })
+        .catch(error => console.log(error));
+}

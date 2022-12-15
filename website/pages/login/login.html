@@ -28,18 +28,19 @@
                 </div>
                 <div class="form">
                     <div class="form-content">
-                        <form method="post">
-                            <div class="field-holder">
-                                <input type="text" class="input-box" id="username" required>
-                                <label for="username" class="input-label">Username, or email</label>
-                            </div>
-                            <div class="field-holder">
-                                <input type="password" class="input-box" id="password">
-                                <label for="password" class="input-label">Password</label>
-                            </div>
-                            <button type="button" class="button" id="login-button" onclick="handleSubmit()">Log
-                                In</button>
-                        </form>
+                        <h1 class="message" id="error-head"></h1>
+                        <div class="field-holder">
+                            <input type="text" class="input-box" id="username" required>
+                            <label for="username" class="input-label">Username, or email</label>
+                            <span class="message" id="error-username-email"></span>
+                        </div>
+                        <div class="field-holder">
+                            <input type="password" class="input-box" id="password" required>
+                            <label for="password" class="input-label">Password</label>
+                            <span class="message" id="error-password"></span>
+                        </div>
+                        <button type="button" class="button" id="login-button" onclick="handleSubmit()">Log
+                            In</button>
                     </div>
                 </div>
                 <div class="line-break">
@@ -60,15 +61,14 @@
                     </div>
                     <p class="btn-text"><b>Sign in with google</b></p>
                 </div>
-                <div class="fp-box">
-                    <a href="" class="fp-link">Forgot password?</a>
-                </div>
             </div>
             <div class="card-content signup-redirect">
                 <p>Don't have an account? <a class="signup-link" onclick="signupRedirect()">Sign Up</a></p>
             </div>
         </div>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="app.js"></script>
+        <script src="../../routing/routing.js"></script>
 </body>
 
 </html>

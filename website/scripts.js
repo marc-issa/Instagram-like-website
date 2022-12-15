@@ -1,1 +1,1 @@
-window.location.replace("http://localhost/Projects/Websites/Instagram-like-website/website/pages/login/login.html");
+window.location.href = "http://localhost/Projects/Websites/Instagram-like-website/website/pages/login/login.html";
