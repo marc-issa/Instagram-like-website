@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
+            $table-> integer("user_id");
+            $table-> string("img_url");
+            $table->string("caption");
+            $table->integer("likes_count");
+            $table->integer("comment_count");
             $table->timestamps();
         });
     }
