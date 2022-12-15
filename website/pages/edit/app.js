@@ -2,6 +2,12 @@ if (localStorage.getItem("token") == null) {
     window.location.href = "http://localhost/Projects/Websites/Instagram-like-website/website/pages/login/login.html";
 }
 
+axios.get('http://127.0.0.1:8000/api/v0.1/user', { headers: { Authorization: localStorage.getItem('token') } })
+    .then(res => {
+        console.log(res)
+    })
+    .catch(error => console.log(error));
+
 /* ****************************** */
 /*          Change Display        */
 /* ****************************** */
