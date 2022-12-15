@@ -243,11 +243,9 @@
             <div class="edit-content" id="edit-content">
                 <div class="profile-display" id="profile-display">
                     <div class="edit-item">
-                        <img src="../../images/no-profile.png" alt="" class="profile-pic">
+                        <img src="../../images/no-profile.png" alt="" class="profile-pic" id="profile-pic">
                         <div class="edit-col">
-                            <div class="username">
-                                username.1
-                            </div>
+                            <div class="username" id="username-display"></div>
                             <input type="file" id="pic-input" class="pic-input">
                             <div class="change-profile-bt">
                                 Change profile photo
@@ -259,7 +257,7 @@
                             Name
                         </div>
                         <div class="edit-col">
-                            <input type="text" class="edit-input">
+                            <input type="text" class="edit-input" id="name" placeholder="Name">
                             <div class="edit-instr">
                                 Help people discover your account by using the name you're known by: either your full
                                 name,
@@ -272,7 +270,7 @@
                             Username
                         </div>
                         <div class="edit-col mg-r">
-                            <input type="text" class="edit-input">
+                            <input type="text" class="edit-input" id="username">
                             <div class="edit-instr">
                                 In most cases, you'll be able to change your username back to marc_issaaa
                             </div>
@@ -294,12 +292,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="edit-item pd-c">
+                    <div class="edit-item mg-r-c">
                         <div class="edit-label">
                             Email
                         </div>
                         <div class="edit-col">
-                            <input type="text" class="edit-input">
+                            <input type="text" class="edit-input" id="email">
                         </div>
                     </div>
                     <div class="edit-item">
@@ -308,10 +306,10 @@
                         </div>
                         <div class="edit-col mg-r-c">
                             <select class="edit-input input-h">
-                                <option value="None" selected disabled hidden>Select a gender</option>
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
-                                <option value="female">Prefer not to say</option>
+                                <option value="male" id="male">Male</option>
+                                <option value="female" id="female">Female</option>
+                                <option value="pnts" id="pnts">Prefer not to say</option>
+                                <option value="empty" id="empty" selected disabled hidden>Select a gender</option>
                             </select>
                         </div>
                     </div>

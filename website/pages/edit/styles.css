@@ -48,7 +48,7 @@
     opacity: 0;
     pointer-events: none;
 
-    height: 35em;
+    height: 37em;
 }
 
 .edit-item {
@@ -126,7 +126,10 @@
 }
 
 .textarea-input {
-    max-width: 100%;
+    max-width: 99%;
+    min-width: 99%;
+    min-height: 50%;
+    max-height: 50%;
 }
 
 .char-counter {

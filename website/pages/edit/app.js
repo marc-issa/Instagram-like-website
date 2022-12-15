@@ -1,12 +1,62 @@
 if (localStorage.getItem("token") == null) {
     window.location.href = "http://localhost/Projects/Websites/Instagram-like-website/website/pages/login/login.html";
 }
+console.log(localStorage.getItem("token"))
 
-axios.get('http://127.0.0.1:8000/api/v0.1/user', { headers: { Authorization: localStorage.getItem('token') } })
+const username_display = document.getElementById("username-display");
+const profile_pic = document.getElementById("profile-pic")
+const name = document.getElementById("name")
+const username = document.getElementById("username")
+const bio_input = document.getElementById("bio-input")
+const email = document.getElementById("email")
+
+axios.get('http://127.0.0.1:8000/api/v0.1/user/', { headers: { Authorization: localStorage.getItem('token') } })
     .then(res => {
-        console.log(res)
+        const user = res.data.user
+
+        username_display.innerHTML = user.username
+        username.value = user.username
+        email.value = user.email
+
+        if (user.profile_img != "empty") {
+            profile_pic.src = user.profile_img;
+        }
+        if (user.name != "empty") {
+            name.value = user.name
+        }
+        if (user.bio != "empty") {
+            bio_input.value = user.bio
+        }
+        if (user.gender != "empty") {
+            let male = document.getElementById("male")
+            let female = document.getElementById("female")
+            let pnts = document.getElementById("pnts")
+            let empty = document.getElementById("empty")
+
+            if (user.gender == "male") {
+                male.setAttribute("selected", true)
+                female.removeAttribute("selected")
+                pnts.removeAttribute("selected")
+            }
+            if (user.gender == "female") {
+                female.setAttribute("selected", true)
+                male.removeAttribute("selected")
+                pnts.removeAttribute("selected")
+            }
+            if (user.gender == "pnts") {
+                pnts.setAttribute("selected", true)
+                female.removeAttribute("selected")
+                male.removeAttribute("selected")
+            }
+            empty.removeAttribute("selected")
+        }
+
     })
     .catch(error => console.log(error));
+
+function editProfile() {
+
+}
 
 /* ****************************** */
 /*          Change Display        */
