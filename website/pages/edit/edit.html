@@ -246,7 +246,7 @@
                         <img src="../../images/no-profile.png" alt="" class="profile-pic" id="profile-pic">
                         <div class="edit-col">
                             <div class="username" id="username-display"></div>
-                            <input type="file" id="pic-input" class="pic-input">
+                            <input type="file" id="pic-input" class="pic-input" oninput="changeImg()">
                             <div class="change-profile-bt">
                                 Change profile photo
                             </div>
@@ -305,7 +305,7 @@
                             Gender
                         </div>
                         <div class="edit-col mg-r-c">
-                            <select class="edit-input input-h">
+                            <select class="edit-input input-h" id="gender">
                                 <option value="male" id="male">Male</option>
                                 <option value="female" id="female">Female</option>
                                 <option value="pnts" id="pnts">Prefer not to say</option>
@@ -367,5 +367,6 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="../../modal-scripts.js"></script>
     <script src="../../routing/routing.js"></script>
+    <script src="../../uploadImg.js"></script>
     <script src="app.js"></script>
 </body>
