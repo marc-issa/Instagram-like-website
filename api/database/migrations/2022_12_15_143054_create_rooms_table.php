@@ -15,8 +15,10 @@ return new class extends Migration
     {
         Schema::create('rooms', function (Blueprint $table) {
             $table->id();
-            $table->integer("user1_id");
-            $table->integer("user2_id");
+            $table->unsignedBigInteger("user1_id");
+            $table->unsignedBigInteger("user2_id");
+            $table->foreign('user1_id')->references('id')->on('users');
+            $table->foreign('user2_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

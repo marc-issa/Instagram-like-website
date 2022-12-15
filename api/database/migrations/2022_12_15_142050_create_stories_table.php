@@ -15,8 +15,9 @@ return new class extends Migration
     {
         Schema::create('stories', function (Blueprint $table) {
             $table->id();
-            $table->integer("user_id");
+            $table->unsignedBigInteger("user_id");
             $table->string("img_url");
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
