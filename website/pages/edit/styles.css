@@ -152,6 +152,8 @@
     font-size: .9em;
     color: white;
     background-color: #0095f6;
+
+    cursor: pointer;
 }
 
 .delete-account-bt {

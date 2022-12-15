@@ -55,7 +55,13 @@ axios.get('http://127.0.0.1:8000/api/v0.1/user/', { headers: { Authorization: lo
     .catch(error => console.log(error));
 
 function editProfile() {
-
+    let args = new FormData();
+    args.append("username", username.value);
+    axios.post('http://127.0.0.1:8000/api/v0.1/user/edit/profile', args, { headers: { Authorization: localStorage.getItem('token') } })
+        .then(res => {
+            window.location.reload();
+        })
+        .catch(error => console.log(error));
 }
 
 /* ****************************** */
