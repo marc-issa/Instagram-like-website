@@ -1,3 +1,7 @@
+if (localStorage.getItem("token") == null) {
+    window.location.href = "http://localhost/Projects/Websites/Instagram-like-website/website/pages/login/login.html";
+}
+
 let last_index = -1;
 function activateRoom(index) {
     let active_room = document.querySelectorAll('.room-item')[index];

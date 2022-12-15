@@ -1,3 +1,7 @@
+if (localStorage.getItem("token") != null) {
+    window.location.href = "http://localhost/Projects/Websites/Instagram-like-website/website/pages/home/home.html";
+}
+
 const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
 const email = document.getElementById("email");
