@@ -17,3 +17,7 @@ function uploadRedirect() {
 function profileRedirect() {
     window.location.href = "http://localhost/Projects/Websites/Instagram-like-website/website/pages/profile/profile.html";
 }
+
+function editRedirect() {
+    window.location.href = "http://localhost/Projects/Websites/Instagram-like-website/website/pages/edit/edit.html";
+}

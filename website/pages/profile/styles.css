@@ -69,6 +69,7 @@ body {
     border-radius: 5px;
     color: rgba(0, 0, 0, 0.7);
     font-weight: 500;
+    cursor: pointer;
 }
 
 .follow-bt {
@@ -84,11 +85,15 @@ body {
 }
 
 .edit-bt {
-    opacity: 1;
+    opacity: 0;
 }
 
 .message-bt {
     opacity: 0;
+}
+
+.active-bt {
+    opacity: 1;
 }
 
 .line {
