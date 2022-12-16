@@ -324,10 +324,9 @@
                 </div>
                 <div class="change-display" id="change-display">
                     <div class="edit-item">
-                        <img src="../../images/no-profile.png" alt="" class="profile-pic">
+                        <img src="../../images/no-profile.png" alt="" class="profile-pic" id="profile-pic-p">
                         <div class="edit-col">
-                            <div class="username">
-                                username.1
+                            <div class="username" id="username-display-p">
                             </div>
                         </div>
                     </div>
@@ -336,7 +335,7 @@
                             Old password
                         </div>
                         <div class="edit-col">
-                            <input type="text" class="edit-input">
+                            <input type="text" class="edit-input" id="old-password">
                         </div>
                     </div>
                     <div class="edit-item pd-c mg-c">
@@ -344,7 +343,7 @@
                             New password
                         </div>
                         <div class="edit-col">
-                            <input type="text" class="edit-input">
+                            <input type="text" class="edit-input" id="new-password">
                         </div>
                     </div>
                     <div class="edit-item pd-c mg-c">
@@ -352,12 +351,12 @@
                             Confirm password
                         </div>
                         <div class="edit-col">
-                            <input type="text" class="edit-input">
+                            <input type="text" class="edit-input" id="confirm-password">
                         </div>
                     </div>
                     <div class="edit-item align-right">
                         <div class="edit-footer">
-                            <button type="button" class="submit-bt">Change password</button>
+                            <button type="button" class="submit-bt" onclick="changePassword()">Change password</button>
                         </div>
                     </div>
                 </div>
@@ -367,6 +366,5 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="../../modal-scripts.js"></script>
     <script src="../../routing/routing.js"></script>
-    <script src="../../uploadImg.js"></script>
     <script src="app.js"></script>
 </body>

@@ -6,7 +6,9 @@ console.log(localStorage.getItem("token"))
 const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
 const username_display = document.getElementById("username-display");
+const username_display_p = document.getElementById("username-display-p");
 const profile_pic = document.getElementById("profile-pic")
+const profile_pic_p = document.getElementById("profile-pic-p")
 const name = document.getElementById("name")
 const username = document.getElementById("username")
 const bio_input = document.getElementById("bio-input")
@@ -20,6 +22,7 @@ axios.get('http://127.0.0.1:8000/api/v0.1/user/', { headers: { Authorization: lo
         const user = res.data.user
 
         username_display.innerHTML = user.username
+        username_display_p.innerHTML = user.username
         username.value = user.username
         email.value = user.email
 
@@ -66,6 +69,10 @@ axios.get('http://127.0.0.1:8000/api/v0.1/user/', { headers: { Authorization: lo
 
         if (user.profile_img != "empty") {
             profile_pic.src = user.profile_img
+            profile_pic_p.src = user.profile_img
+        } else {
+            profile_pic.src = "../../images/no-profile.png"
+            profile_pic_p.src = "../../images/no-profile.png"
         }
 
     })
@@ -94,11 +101,17 @@ function editProfile() {
     }
 
     if (name.value != old_name) {
-        args.append("name", name.value)
         changes = true;
+        if (name.value == '') {
+            name.value = 'empty'
+        }
+        args.append("name", name.value)
     }
 
     if (bio_input.value != old_bio) {
+        if (bio_input.value == '') {
+            bio_input.value = 'empty'
+        }
         args.append("bio", bio_input.value)
         changes = true;
     }
@@ -108,7 +121,9 @@ function editProfile() {
         changes = true;
     }
 
-    if (localStorage.getItem("img-change")) {
+    let img_change = localStorage.getItem("img-change")
+
+    if (img_change == 'true') {
         args.append("profile_img", localStorage.getItem("uploaded-img"))
         changes = true;
     }
@@ -124,6 +139,7 @@ function editProfile() {
                 localStorage.removeItem("img-change");
                 localStorage.removeItem("uploaded-img");
                 window.location.reload();
+                console.log(res);
             })
             .catch(err => console.log(err));
     }
@@ -148,8 +164,41 @@ function changeImg() {
     })
 }
 
-function editPassword() {
+function changePassword() {
+    const old_password = document.getElementById("old-password");
+    const new_password = document.getElementById("new-password");
+    const confirm_password = document.getElementById("confirm-password");
+    old_password.classList.remove("error");
+    new_password.classList.remove("error");
+    confirm_password.classList.remove("error");
 
+    if (old_password.value == "") {
+        old_password.classList.add("error");
+    }
+    if (new_password.value == "") {
+        new_password.classList.add("error");
+    }
+    if (confirm_password.value == "") {
+        confirm_password.classList.add("error");
+    }
+    if (new_password.value == confirm_password.value) {
+        let args = new FormData();
+        args.append("password", old_password.value);
+        args.append("new_password", new_password.value);
+
+        axios.post('http://127.0.0.1:8000/api/v0.1/user/edit/password', args, { headers: { Authorization: localStorage.getItem('token') } })
+            .then(res => {
+                window.location.reload();
+            })
+            .catch(err => {
+                old_password.classList.add("error");
+            });
+
+
+    } else {
+        new_password.classList.add("error");
+        confirm_password.classList.add("error");
+    }
 }
 
 /* ****************************** */
