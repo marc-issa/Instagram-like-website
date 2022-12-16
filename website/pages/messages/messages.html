@@ -215,8 +215,8 @@
         <div class="messages-card">
             <div class="rooms">
                 <div class="rooms-header">
-                    <div class="room-username">
-                        username.1
+                    <div class="room-username" id="header-username">
+
                     </div>
                 </div>
                 <div class="rooms-subheader">
@@ -224,160 +224,29 @@
                         Messages
                     </div>
                 </div>
-                <div class="rooms-list">
-                    <div class="room-item" onclick="activateRoom(0)">
-                        <div class="user-profile-pic">
-                            <img src="../../images/no-profile.png" class="room-profile-pic" alt="">
-                        </div>
-                        <div class="room-info">
-                            <div class="user-fullname">
-                                Admin admin
-                            </div>
-                            <div class="last-message-date">
-                                1d
-                            </div>
-                        </div>
-                    </div>
-                    <div class="room-item" onclick="activateRoom(1)">
-                        <div class="user-profile-pic">
-                            <img src="../../images/no-profile.png" class="room-profile-pic" alt="">
-                        </div>
-                        <div class="room-info">
-                            <div class="user-fullname">
-                                Admin admin
-                            </div>
-                            <div class="last-message-date">
-                                1d
-                            </div>
-                        </div>
-                    </div>
-                    <div class="room-item" onclick="activateRoom(2)">
-                        <div class="user-profile-pic">
-                            <img src="../../images/no-profile.png" class="room-profile-pic" alt="">
-                        </div>
-                        <div class="room-info">
-                            <div class="user-fullname">
-                                Admin admin
-                            </div>
-                            <div class="last-message-date">
-                                1d
-                            </div>
-                        </div>
-                    </div>
-                    <div class="room-item" onclick="activateRoom(3)">
-                        <div class="user-profile-pic">
-                            <img src="../../images/no-profile.png" class="room-profile-pic" alt="">
-                        </div>
-                        <div class="room-info">
-                            <div class="user-fullname">
-                                Admin admin
-                            </div>
-                            <div class="last-message-date">
-                                1d
-                            </div>
-                        </div>
-                    </div>
-                    <div class="room-item" onclick="activateRoom(4)">
-                        <div class="user-profile-pic">
-                            <img src="../../images/no-profile.png" class="room-profile-pic" alt="">
-                        </div>
-                        <div class="room-info">
-                            <div class="user-fullname">
-                                Admin admin
-                            </div>
-                            <div class="last-message-date">
-                                1d
-                            </div>
-                        </div>
-                    </div>
-                    <div class="room-item" onclick="activateRoom(5)">
-                        <div class="user-profile-pic">
-                            <img src="../../images/no-profile.png" class="room-profile-pic" alt="">
-                        </div>
-                        <div class="room-info">
-                            <div class="user-fullname">
-                                Admin admin
-                            </div>
-                            <div class="last-message-date">
-                                1d
-                            </div>
-                        </div>
-                    </div>
-                    <div class="room-item" onclick="activateRoom(6)">
-                        <div class="user-profile-pic">
-                            <img src="../../images/no-profile.png" class="room-profile-pic" alt="">
-                        </div>
-                        <div class="room-info">
-                            <div class="user-fullname">
-                                Admin admin
-                            </div>
-                            <div class="last-message-date">
-                                1d
-                            </div>
-                        </div>
-                    </div>
-                    <div class="room-item" onclick="activateRoom(7)">
-                        <div class="user-profile-pic">
-                            <img src="../../images/no-profile.png" class="room-profile-pic" alt="">
-                        </div>
-                        <div class="room-info">
-                            <div class="user-fullname">
-                                Admin admin
-                            </div>
-                            <div class="last-message-date">
-                                1d
-                            </div>
-                        </div>
-                    </div>
+                <div class="rooms-list" id="rooms-list">
+
                 </div>
             </div>
             <div class="chat" id="chat">
                 <div class="chat-header">
                     <div class="chat-username">
-                        <img src="../../images/no-profile.png" class="chat-profile-pic" alt="">
-                        <div class="chat-header-text">
+                        <img src="" class="chat-profile-pic" alt="" id="chat-profile-pic">
+                        <div class="chat-header-text" id="chat-header-text">
                             admin.1
                         </div>
                     </div>
                 </div>
-                <div class="chat-content">
+                <div class="chat-content" id="chat-content-display">
                     <div class="message black-mess user-sent">
-                        Lorem ipsum dolor.
-                    </div>
-                    <div class="message black-mess">
-                        Lorem ipsum dolor.
-                    </div>
-                    <div class="message black-mess user-sent">
-                        Lorem ipsum dolor.
-                    </div>
-                    <div class="message black-mess">
-                        Lorem ipsum dolor.
-                    </div>
-                    <div class="message black-mess user-sent">
-                        Lorem ipsum dolor.
-                    </div>
-                    <div class="message black-mess user-sent">
-                        Lorem ipsum dolor.
-                    </div>
-                    <div class="message black-mess">
-                        Lorem ipsum dolor.
-                    </div>
-                    <div class="message black-mess user-sent">
-                        Lorem ipsum dolor.
-                    </div>
-                    <div class="message black-mess">
-                        Lorem ipsum dolor.
-                    </div>
-                    <div class="message black-mess user-sent">
-                        Lorem ipsum dolor.
+
                     </div>
                 </div>
                 <div class="chat-footer">
                     <div class="chat-input">
-                        <input type="text" placeholder="Message..." class="chat-input-field">
-                        <a href="" class="send-button" id="chat-post-bt">Send</a>
+                        <input type="text" placeholder="Message..." class="chat-input-field" id="chat-input-field">
+                        <a class="send-button" id="send-bt">Send</a>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -386,7 +255,7 @@
 
     </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="app.js"></script>
     <script src="../../routing/routing.js"></script>
     <script src="../../modal-scripts.js"></script>
+    <script src="app.js"></script>
 </body>

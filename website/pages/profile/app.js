@@ -77,6 +77,9 @@ getCurrUser().then(res => {
 
         getUser(localStorage.getItem("id")).then(res => {
             let user = res
+
+            message_bt.setAttribute("onclick", `startChat(${user["id"]})`)
+
             profile_username.innerHTML = user["username"]
 
             name.innerHTML = user["name"]

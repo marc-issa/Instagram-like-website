@@ -1,4 +1,20 @@
 /******************************/
+/*      Handeling Messges   */
+/*****************************/
+
+const startChat = async (id) => {
+    let args = new FormData();
+    args.append("user2", id)
+
+    const resp = await axios.post('http://127.0.0.1:8000/api/v0.1/chat/create', args, { headers: { Authorization: localStorage.getItem('token') } })
+        .then(res => {
+            localStorage.setItem("rid", res.data.room)
+            window.location.href = "http://localhost/Projects/Websites/Instagram-like-website/website/pages/messages/messages.html";
+        })
+    return resp
+}
+
+/******************************/
 /*      Handeling Homepage   */
 /*****************************/
 
