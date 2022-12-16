@@ -2,10 +2,13 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlockController;
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\FollowController;
 use App\Http\Controllers\LikeController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\RoomController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -49,4 +52,12 @@ route::group(["prefix"=>"v0.1"], function(){
     route::get("/follow/{id}", [FollowController::class, "countFollow"]);
 
     route::post("/block", [BlockController::class, "modifyBlock"]);
+
+    route::group(["prefix"=>"chat"], function(){
+        route::post("/create",[RoomController::class, "createRoom"]);
+        route::get("/",[RoomController::class, "getAllRooms"]);
+        route::post("/getRoom",[RoomController::class, "getRoom"]);
+        route::post("/messages/add", [ChatController::class, "sendMessages"]);
+        route::get("/messages/get/{id}", [ChatController::class, "getMessages"]);
+    });
 });
