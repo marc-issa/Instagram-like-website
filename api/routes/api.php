@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -27,10 +28,16 @@ route::group(["prefix"=>"v0.1"], function(){
         route::get("user/{id}", [PostController::class, "getUserPosts"]);
         route::post("delete", [PostController::class, "deletePosts"]);
         route::get("comment/{id}", [PostController::class, "addComment"]);
+        route::get("likes/{id}", [PostController::class, "addComment"]);
     });
 
     route::group(["prefix"=>"comment"], function(){
         route::post("share", [CommentController::class, "shareComment"]);
         route::get("/{id}", [CommentController::class, "getAll"]);
+    });
+
+    route::group(["prefix"=>"like"], function(){
+        route::get("/", [LikeController::class, "getLikes"]);
+        route::post("add", [LikeController::class, "modifyLike"]);
     });
 });
