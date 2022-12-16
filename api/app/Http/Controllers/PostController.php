@@ -12,6 +12,13 @@ class PostController extends Controller
         $this->middleware('auth:api');
     }
 
+    function getPost($id){
+        $post = Post::where("id", $id)->first();
+        return response()->json([
+            "post"=>$post
+        ]);
+    }
+
     function sharePost(Request $request){
         $curr_user = Auth::user();
         $post = new Post();
@@ -39,7 +46,7 @@ class PostController extends Controller
         }
     }
 
-    function getPost($id){
+    function getUserPosts($id){
         $posts = Post::where("user_id", $id)->get();
         return response()->json([
             "posts"=>$posts

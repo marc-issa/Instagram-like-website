@@ -13,6 +13,7 @@ route::group(["prefix"=>"v0.1"], function(){
         route::get("refresh", [AuthController::class, "logout"]);
 
         route::get("/",[UserController::class,"getUser"]);
+        route::get("/{id}",[UserController::class,"getUserById"]);
 
         route::group(["prefix"=>"edit"], function(){
             route::post("profile", [UserController::class, "editProfile"]);
@@ -20,7 +21,9 @@ route::group(["prefix"=>"v0.1"], function(){
         }); 
     });
     route::group(["prefix"=>"post"], function(){
+        route::get("/{id}", [PostController::class, "getPost"]);
         route::post("share", [PostController::class, "sharePost"]);
-        route::get("user/{id}", [PostController::class, "getPost"]);
+        route::get("user/{id}", [PostController::class, "getUserPosts"]);
+        route::post("delete", [PostController::class, "deletePosts"]);
     });
 });

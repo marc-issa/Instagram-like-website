@@ -94,4 +94,12 @@ class UserController extends Controller
             'user' => $user,
         ]);
     }
+
+    function getUserById($id){
+        $user = User::where("id", $id)->first();
+        return response()->json([
+            'status' => 'success',
+            'user' => $user,
+        ]);
+    }
 }
