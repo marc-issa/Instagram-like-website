@@ -2,63 +2,133 @@
 /* Handeling post modal
 /*****************************/
 
-function deletePost(id) {
+const getCurrUser = async () => {
+    const resp = await axios.get('http://127.0.0.1:8000/api/v0.1/user/', { headers: { Authorization: localStorage.getItem('token') } })
+        .then(res => {
+            let curr_user = res.data.user
+            return curr_user
+        })
+        .catch(err => console.log(err))
+    return resp
+}
 
+const getPost = async (id) => {
+    const resp = await axios.get(`http://127.0.0.1:8000/api/v0.1/post/${id}}`, { headers: { Authorization: localStorage.getItem('token') } })
+        .then(res => {
+            let post = res.data.post;
+            return post
+        })
+        .catch(err => console.log(err))
+    return resp;
+}
+
+const getUser = async (id) => {
+    const resp = await axios.get(`http://127.0.0.1:8000/api/v0.1/user/${id}`, { headers: { Authorization: localStorage.getItem('token') } })
+        .then(res => {
+            let user = res.data.user;
+            return user
+        })
+        .catch(err => console.log(err))
+    return resp
+}
+
+const createCommentItem = (comment) => {
+    const comment_content = document.getElementById("comment-content");
+
+    let comment_item = document.createElement("div");
+    comment_item.classList.add("comment-item")
+    comment_item.innerHTML = `
+        <div class="username-comment" onclick="profileRedirect(${comment["id"]})" >
+                   ${comment["username"]} 
+        </div >
+        <div class="comment-content">
+            ${comment["comment"]}
+        </div>
+    `
+
+    comment_content.appendChild(comment_item);
+}
+
+const getAllComments = async (id) => {
+    const resp = await axios.get(`http://127.0.0.1:8000/api/v0.1/comment/${id}`, { headers: { Authorization: localStorage.getItem('token') } })
+        .then(res => {
+            let comments = res.data.comments
+            for (let i = comments.length - 1; i >= 0; i--) {
+
+                createCommentItem(comments[i])
+            }
+        })
+        .catch(err => console.log(err))
 }
 
 function postInfo(id) {
-    axios.get(`http://127.0.0.1:8000/api/v0.1/post/${id}}`, { headers: { Authorization: localStorage.getItem('token') } })
-        .then(res => {
-            let post = res.data.post;
-            axios.get('http://127.0.0.1:8000/api/v0.1/user/', { headers: { Authorization: localStorage.getItem('token') } })
-                .then(res => {
-                    let curr_user = res.data.user
+    getPost(id).then(res => {
+        let post = res;
+        getCurrUser().then(res => {
+            let curr_user = res;
+            getUser(post["user_id"]).then(res => {
+                let user = res;
 
-                    if (post["user_id"] == curr_user["id"]) {
-                        let delete_bt = document.getElementById("delete-bt");
-                        delete_bt.classList.add("active")
-                        delete_bt.setAttribute("onclick", `deletePost(${post['id']})`)
-                    }
-                    axios.get(`http://127.0.0.1:8000/api/v0.1/user/${post['user_id']}`, { headers: { Authorization: localStorage.getItem('token') } })
-                        .then(res => {
-                            user = res.data.user;
-                            let header_profile = document.getElementById("header_profile")
-                            header_profile.innerHTML = `
-                            <img src="${user["profile_img"]}" alt="" class="post-profile" onclick="profileRedirect(${user["id"]})">
-                            <div class="username-post" onclick="profileRedirect(${user["id"]})">
-                                ${user["username"]}
-                            </div>
-                            `
+                if (user["id"] == curr_user["id"]) {
+                    let delete_bt = document.getElementById("delete-bt");
+                    delete_bt.classList.add("active")
+                    delete_bt.setAttribute("onclick", `deletePost(${post['id']})`)
+                }
 
-                            let comment_bt = document.getElementById("share-comment-bt");
-                            comment_bt.setAttribute("onclick", `shareComment(${id})`)
-                        })
-                        .catch(err => console.log(err))
+                let user_post_profile = document.getElementById("user-post-profile");
+                let user_post_username = document.getElementById("user-post-username");
+                let post_img = document.getElementById("post-img")
+                let comment_bt = document.getElementById("comment-bt");
 
+                user_post_profile.src = user["profile_img"];
+                user_post_username.innerHTML = user["username"]
+                post_img.src = post["img_url"]
+                comment_bt.setAttribute("onclick", `shareComment(${id})`)
 
-                })
+                getAllComments(id)
+
+            })
                 .catch(err => console.log(err))
         })
+            .catch(err => console.log(err))
+    })
         .catch(err => console.log(err))
 }
 
 function shareComment(id) {
-    axios.get('http://127.0.0.1:8000/api/v0.1/user/', { headers: { Authorization: localStorage.getItem('token') } })
-        .then(res => {
-            curr_user = res.data.user;
-            let comment_input = document.getElementById("comment-input").value;
+    getCurrUser().then(res => {
+        curr_user = res;
+        let comment_input = document.getElementById("comment-input").value;
 
-            let args = new FormData();
-            args.append("post_id", id)
-            args.append("user_id", curr_user["id"])
-            args.append("comment", comment_input)
+        let args = new FormData();
+        args.append("post_id", id)
+        args.append("user_id", curr_user["id"])
+        args.append("comment", comment_input)
 
-            axios.post('http://127.0.0.1:8000/api/v0.1/comment/share', args, { headers: { Authorization: localStorage.getItem('token') } })
-                .then(res => {
-                    window.location.reload()
-                })
-        })
+        axios.post('http://127.0.0.1:8000/api/v0.1/comment/share', args, { headers: { Authorization: localStorage.getItem('token') } })
+            .then(res => {
+                incrementComments(id);
+                window.location.reload()
+            })
+    })
+}
+
+function incrementComments(id) {
+    axios.get(`http://127.0.0.1:8000/api/v0.1/post/comment/${id}`, { headers: { Authorization: localStorage.getItem('token') } })
+        .then(res => res)
         .catch(err => console.log(err))
+}
+
+function removeChanges() {
+    const comment_content = document.getElementById("comment-content");
+    const user_post_profile = document.getElementById("user-post-profile");
+    const user_post_username = document.getElementById("user-post-username");
+    const post_img = document.getElementById("post-img")
+
+    comment_content.innerHTML = "";
+    user_post_profile.src = "";
+    user_post_username.innerHTML = "";
+    post_img.src = "";
 }
 
 /******************************/
@@ -190,6 +260,7 @@ function closeModal() {
     enableScrolling();
     deleteImg();
     resetCounter();
+    removeChanges();
 }
 
 // disable/enable scrolling

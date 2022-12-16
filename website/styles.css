@@ -367,10 +367,9 @@ body {
 }
 
 .comment-item {
-    width: 100%;
     display: flex;
-    margin-bottom: .7em;
-    display: flex;
+    flex-wrap: wrap;
+    padding: 1em;
 }
 
 .username-comment {
