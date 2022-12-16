@@ -1,6 +1,29 @@
-//**********************************
-//     Modal Design Controls
-//**********************************
+/******************************/
+/* Hnadleing post submission  */
+/******************************/
+
+function sharePost() {
+    let args = new FormData();
+
+    const caption_input = document.getElementById("caption-input");
+
+    if (caption_input.value.length < 300) {
+        if (caption_input.value != '') {
+            args.append("caption", caption_input);
+        }
+        if (localStorage.getItem("uploaded-img") != null) {
+            args.append("img_url", localStorage.getItem("uploaded-img"))
+            axios.post('http://127.0.0.1:8000/api/v0.1/post/share', args, { headers: { Authorization: localStorage.getItem('token') } })
+                .then(res => res)
+                .catch(err => console.log(err));
+        }
+    }
+}
+
+
+/**********************************/
+/*    Modal Design Controls       */
+/**********************************/
 function viewPost() {
     const modal = document.getElementById("modal");
     const post_modal = document.getElementById("modal-post");
@@ -32,6 +55,16 @@ function viewAdd() {
     upload_modal.classList.add('active')
 
     disableScrolling();
+
+    axios.get('http://127.0.0.1:8000/api/v0.1/user/', { headers: { Authorization: localStorage.getItem('token') } })
+        .then(res => {
+            const user = res.data.user
+            const username = document.getElementById("share-username-post");
+            const profile = document.getElementById("share-post-profile");
+            username.innerHTML = user["username"];
+            profile.src = user["profile_img"]
+        })
+        .catch(error => console.log(error));
 }
 
 function viewNotif() {
@@ -121,6 +154,7 @@ function addUploadedImg() {
     reader.addEventListener("load", function () {
         localStorage.setItem("uploaded-img", reader.result);
         uploaded_img.src = localStorage.getItem("uploaded-img");
+        console.log(uploaded_img);
     })
 
     sec_footer.classList.add("deactivate-upload-footer")

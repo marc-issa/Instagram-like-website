@@ -1,7 +1,6 @@
 if (localStorage.getItem("token") == null) {
     window.location.href = "http://localhost/Projects/Websites/Instagram-like-website/website/pages/login/login.html";
 }
-console.log(localStorage.getItem("token"))
 
 const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
@@ -109,11 +108,13 @@ function editProfile() {
     }
 
     if (bio_input.value != old_bio) {
-        if (bio_input.value == '') {
-            bio_input.value = 'empty'
+        if (bio_input.value.length < 150) {
+            if (bio_input.value == '') {
+                bio_input.value = 'empty'
+            }
+            args.append("bio", bio_input.value)
+            changes = true;
         }
-        args.append("bio", bio_input.value)
-        changes = true;
     }
 
     if (gender.value != old_gender) {
@@ -127,7 +128,6 @@ function editProfile() {
         args.append("profile_img", localStorage.getItem("uploaded-img"))
         changes = true;
     }
-
     if (changes) {
         axios.post('http://127.0.0.1:8000/api/v0.1/user/edit/profile', args, { headers: { Authorization: localStorage.getItem('token') } })
             .then(res => {
@@ -146,9 +146,11 @@ function editProfile() {
 
 }
 
-function chamgeImgVal() {
-    changeImg();
-    localStorage.setItem("img-change") = true;
+function changeImgVal() {
+    changeImg()
+    localStorage.setItem("img-change", true);
+
+
 }
 
 function changeImg() {
@@ -156,12 +158,20 @@ function changeImg() {
     const uploaded_img = document.getElementById("profile-pic");
     const img_input = document.getElementById("pic-input");
 
-    reader.readAsDataURL(img_input.files[0]);
+    if (img_input.files[0].size < 65000) {
+        reader.readAsDataURL(img_input.files[0]);
 
-    reader.addEventListener("load", function () {
-        localStorage.setItem("uploaded-img", reader.result);
-        uploaded_img.src = localStorage.getItem("uploaded-img");
-    })
+        reader.addEventListener("load", function () {
+            localStorage.setItem("uploaded-img", reader.result);
+            uploaded_img.src = localStorage.getItem("uploaded-img");
+            return true;
+        })
+    } else {
+        alert("Image size too big")
+        localStorage.setItem("uploaded-img", uploaded_img.src);
+    }
+
+
 }
 
 function changePassword() {
