@@ -21,5 +21,6 @@ route::group(["prefix"=>"v0.1"], function(){
     });
     route::group(["prefix"=>"post"], function(){
         route::post("share", [PostController::class, "sharePost"]);
+        route::get("user/{id}", [PostController::class, "getPost"]);
     });
 });

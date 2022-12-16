@@ -38,4 +38,11 @@ class PostController extends Controller
             ], 401);
         }
     }
+
+    function getPost($id){
+        $posts = Post::where("user_id", $id)->get();
+        return response()->json([
+            "posts"=>$posts
+        ]);
+    }
 }

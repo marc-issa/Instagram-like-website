@@ -62,11 +62,8 @@ class UserController extends Controller
         }
 
         if($request->profile_img){
-            return response()->json([
-                'status' => 'success',
-            ]);
-            // $user = User::where("id",$user_token["id"]);
-            // $user->update(["profile_img"=>$request->profile_img]);
+            $user = User::where("id",$user_token["id"]);
+            $user->update(["profile_img"=>$request->profile_img]);
         }
         
     }
