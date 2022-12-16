@@ -142,6 +142,16 @@ function postInfo(id) {
         .catch(err => console.log(err))
 }
 
+const deletePost = async (id) => {
+    let args = new FormData();
+    args.append("post_id", id)
+    await axios.post("http://127.0.0.1:8000/api/v0.1/post/delete", args, { headers: { Authorization: localStorage.getItem('token') } })
+        .then(res => {
+            window.location.reload();
+        })
+        .catch(err => console.error(err));
+}
+
 function shareComment(id) {
     getCurrUser().then(res => {
         curr_user = res;
