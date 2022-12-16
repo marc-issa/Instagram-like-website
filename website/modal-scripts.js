@@ -1,4 +1,16 @@
 /******************************/
+/*      Handeling Homepage   */
+/*****************************/
+
+const followingsPosts = async () => {
+    const resp = await axios.get('http://127.0.0.1:8000/api/v0.1/post/following', { headers: { Authorization: localStorage.getItem('token') } })
+        .then(res => {
+            return res.data.posts
+        }).catch(err => console.log(err));
+    return resp
+}
+
+/******************************/
 /*      Handeling blocks
 /*****************************/
 
@@ -106,14 +118,13 @@ const createCommentItem = (comment) => {
 }
 
 const modifyLike = (id) => {
-    console.log(id)
     let args = new FormData();
     args.append("post_id", id)
 
     axios.post(`http://127.0.0.1:8000/api/v0.1/like/`, args, { headers: { Authorization: localStorage.getItem('token') } })
         .then(res => {
             let like = res.data.message
-            console.log(like)
+
             let like_bt = document.getElementById("like-bt");
             if (like == undefined) {
                 like_bt.src = "../../images/liked-icon.png"
@@ -122,8 +133,6 @@ const modifyLike = (id) => {
             }
         })
         .catch(err => console.log(err))
-
-
 }
 
 function postInfo(id) {
