@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BlockController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\FollowController;
 use App\Http\Controllers\LikeController;
@@ -45,4 +46,6 @@ route::group(["prefix"=>"v0.1"], function(){
     
     route::post("/follow", [FollowController::class, "modifyFollow"]);
     route::get("/follow/{id}", [FollowController::class, "countFollow"]);
+
+    route::post("/block", [BlockController::class, "modifyBlock"]);
 });
