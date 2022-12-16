@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -61,9 +62,31 @@ class UserController extends Controller
         }
 
         if($request->profile_img){
-            $user = User::where("id",$user_token["id"]);
-            $user->update(["profile_img"=>$request->profile_img]);
+            return response()->json([
+                'status' => 'success',
+            ]);
+            // $user = User::where("id",$user_token["id"]);
+            // $user->update(["profile_img"=>$request->profile_img]);
         }
+        
+    }
+
+    function editPassword(Request $request){
+        $user_token = Auth::user();
+        if(Hash::check($request->password, $user_token["password"])){
+            $user = User::where("id",$user_token["id"]);
+            $user->update(["password"=>Hash::make($request->new_password)]);
+            return response()->json([
+                'status' => 'success',
+            ]);
+        }else{
+            return response()->json([
+                'status' => 'error',
+                'message'=>'wrong-password'
+            ],401);
+        }
+        
+        
         
     }
 
