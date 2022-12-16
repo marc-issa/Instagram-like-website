@@ -217,3 +217,10 @@ function logout() {
         })
         .catch(error => console.log(error));
 }
+axios.get('http://127.0.0.1:8000/api/v0.1/user/', { headers: { Authorization: localStorage.getItem('token') } })
+    .then(res => {
+        const user = res.data.user
+        const profile_redirect_dash = document.getElementById("profile-redirect-dash")
+        profile_redirect_dash.setAttribute("onclick", `profileRedirect(${user["id"]})`)
+    })
+    .catch(err => err)

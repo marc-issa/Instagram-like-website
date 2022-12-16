@@ -224,28 +224,29 @@
     <div class="profile-sec">
         <div class="profile-header">
             <div class="profile-pic">
-                <img class="profile-pic-size" src="../../images/no-profile.png">
+                <img class="profile-pic-size" src="../../images/no-profile.png" id="profile-pic">
             </div>
             <div class="profile-stats">
                 <div class="row">
-                    <div class="profile-username">
+                    <div class="profile-username" id="profile-username">
                         username.1
                     </div>
-                    <a class="bt edit-bt active-bt" id="edit-bt" onclick="editRedirect()">Edit profile</a>
-                    <a class="bt follow-bt active-bt" id="follow-bt">Follow</a>
-                    <a class="bt message-bt active-bt" id="message-bt">Message</a>
-                    <a class="bt block-bt active-bt" id="block-bt">Block</a>
+                    <a class="bt edit-bt" id="edit-bt" onclick="editRedirect()">Edit profile</a>
+                    <a class="bt follow-bt" id="follow-bt">Follow</a>
+                    <a class="bt message-bt" id="message-bt">Message</a>
+                    <a class="bt block-bt" id="block-bt">Block</a>
                 </div>
                 <div class="row">
-                    <div class="posts-count">0 posts</div>
-                    <div class="followers-count">0 followers</div>
-                    <div class="following-count">0 following</div>
+                    <div class="posts-count" id="posts-count">0 posts</div>
+                    <div class="followers-count" id="followers">0 followers</div>
+                    <div class="following-count" id="following">0 following</div>
                 </div>
                 <div class="row">
-                    <div class="full-name">Username username</div>
+                    <div class="name" id="name">Username username</div>
                 </div>
                 <div class="row">
-                    <div class="bio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, cumque quidem error
+                    <div class="bio" id="bio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, cumque
+                        quidem error
                         unde eos nam,
                         adipisci et tempora harum nemo.</div>
                 </div>
@@ -267,6 +268,7 @@
     <div class="right-sec">
     </div>
 
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="app.js"></script>
     <script src="../../routing/routing.js"></script>
     <script src="../../modal-scripts.js"></script>
