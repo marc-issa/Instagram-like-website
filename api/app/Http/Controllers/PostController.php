@@ -70,4 +70,11 @@ class PostController extends Controller
         Comment::where("post_id", $request->post_id)->delete();
         Post::where("id", $request->post_id)->delete();
     }
+    
+    function getAll(){
+        $posts = Post::all();
+        return response()->json([
+            $posts
+        ]);
+    }
 }

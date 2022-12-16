@@ -25,6 +25,7 @@ route::group(["prefix"=>"v0.1"], function(){
     });
     route::group(["prefix"=>"post"], function(){
         route::get("/{id}", [PostController::class, "getPost"]);
+        route::get("/", [PostController::class, "getAll"]);
         route::post("share", [PostController::class, "sharePost"]);
         route::get("user/{id}", [PostController::class, "getUserPosts"]);
         route::post("delete", [PostController::class, "deletePosts"]);
