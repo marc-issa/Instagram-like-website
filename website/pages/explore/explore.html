@@ -210,44 +210,14 @@
     </div>
 
     <div class="empty-sec"></div>
-    <div class="explore-sec">
-        <div class="search-bar">
-            <input type="text" class="search-input" placeholder="Search">
+    <div class="explore-sec" id="explore-sec">
+        <div class="search-bar" oninput="searchUser()">
+            <input type="text" class="search-input" placeholder="Search" id="search-input">
         </div>
-        <div class="explore-posts">
-            <div class="post-display">
-                <img src="../../images/demo2.jpg" class="explore-post-size" onclick="viewPost()">
-            </div>
-            <div class="post-display">
-                <img src="../../images/demo2.jpg" class="explore-post-size" onclick="viewPost()">
-            </div>
-            <div class="post-display">
-                <img src="../../images/demo2.jpg" class="explore-post-size" onclick="viewPost()">
-            </div>
-            <div class="post-display">
-                <img src="../../images/demo-img.jpg" class="explore-post-size" onclick="viewPost()">
-            </div>
-            <div class="post-display">
-                <img src="../../images/demo-img.jpg" class="explore-post-size" onclick="viewPost()">
-            </div>
-            <div class="post-display">
-                <img src="../../images/demo-img.jpg" class="explore-post-size" onclick="viewPost()">
-            </div>
-            <div class="post-display">
-                <img src="../../images/demo-img.jpg" class="explore-post-size" onclick="viewPost()">
-            </div>
-            <div class="post-display">
-                <img src="../../images/demo-img.jpg" class="explore-post-size" onclick="viewPost()">
-            </div>
-            <div class="post-display">
-                <img src="../../images/demo-img.jpg" class="explore-post-size" onclick="viewPost()">
-            </div>
-            <div class="post-display">
-                <img src="../../images/demo-img.jpg" class="explore-post-size" onclick="viewPost()">
-            </div>
-            <div class="post-display">
-                <img src="../../images/demo-img.jpg" class="explore-post-size" onclick="viewPost()">
-            </div>
+        <div class="search-result" id="search-sec">
+
+        </div>
+        <div class="explore-posts" id="explore-posts">
         </div>
     </div>
     <div class="right-sec">
@@ -255,4 +225,5 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="../../routing/routing.js"></script>
     <script src="../../modal-scripts.js"></script>
+    <script src="app.js"></script>
 </body>

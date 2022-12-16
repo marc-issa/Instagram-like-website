@@ -7,23 +7,46 @@ const profile_pic = document.getElementById("profile-pic");
 const name = document.getElementById("name");
 const bio = document.getElementById("bio");
 
-axios.get('http://127.0.0.1:8000/api/v0.1/user/', { headers: { Authorization: localStorage.getItem('token') } })
-    .then(res => {
-        const user = res.data.user
-        if (user["id"] == localStorage.getItem("id")) {
-            const edit_bt = document.getElementById("edit-bt");
-            edit_bt.classList.add("active-bt");
+getCurrUser().then(res => {
+    const curr_user = res
+    console.log(curr_user)
+    if (curr_user["id"] == localStorage.getItem("id")) {
+        const edit_bt = document.getElementById("edit-bt");
+        edit_bt.classList.add("active-bt");
 
+        profile_username.innerHTML = curr_user["username"]
+        profile_pic.src = curr_user["profile_img"]
+        name.innerHTML = curr_user["name"]
+        bio.innerHTML = curr_user["bio"]
+    } else {
+        const follow_bt = document.getElementById("follow-bt")
+        const message_bt = document.getElementById("message-bt")
+        const block_bt = document.getElementById("block-bt")
+
+        follow_bt.classList.add("active-bt")
+        message_bt.classList.add("active-bt")
+        block_bt.classList.add("active-bt")
+
+
+        getUser(localStorage.getItem("id")).then(res => {
+            let user = res
             profile_username.innerHTML = user["username"]
             profile_pic.src = user["profile_img"]
             name.innerHTML = user["name"]
             bio.innerHTML = user["bio"]
-        } else {
-            const follow_bt = document.getElementById("follow-bt")
-            const message_bt = document.getElementById("message-bt")
-            const block_bt = document.getElementById("block-bt")
-        }
-    })
+
+            if (user["profile_img"] == "empty") {
+                profile_pic.src = "../../images/no-profile.png"
+            }
+            if (user["name"] == "empty") {
+                name.innerHTML = ""
+            }
+            if (user["bio"] == "empty") {
+                bio.innerHTML = ""
+            }
+        })
+    }
+})
     .catch(err => console.log(err))
 
 axios.get(`http://127.0.0.1:8000/api/v0.1/post/user/${localStorage.getItem("id")}`, { headers: { Authorization: localStorage.getItem('token') } })
