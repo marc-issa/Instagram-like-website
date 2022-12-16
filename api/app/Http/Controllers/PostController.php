@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
+use App\Models\Like;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -61,5 +63,11 @@ class PostController extends Controller
         return response()->json([
             "posts"=>$com
         ]);
+    }
+
+    function deletePosts(Request $request){
+        Like::where("post_id", $request->post_id)->delete();
+        Comment::where("post_id", $request->post_id)->delete();
+        Post::where("id", $request->post_id)->delete();
     }
 }
