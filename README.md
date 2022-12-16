@@ -8,9 +8,18 @@ This project is a clone of the popular photo sharing app Instagram. It is writte
 - Users can upload photos and share them with other users
 - Users can see their photos and others in their feed
 - Users can like and comment on photos
+- Users can find friends
+- Users can talk to each other with our messaging feature
+- Users can add, block and remove friends
 
-## APIs
-Here is a like to the list of [APIs](api).
+## Stacks
+<img align="left" alt="TypeScript" width="45px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg" />
+<img align="left" alt="Laravel" width="45px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain-wordmark.svg" />
+
+
+</br>
+<br>
+<br>
 
 ## Getting Started
 
@@ -19,10 +28,14 @@ These instructions will get you a copy of the project up and running on your loc
 ### Prerequisites
 
 - XAMPP
+- Laravel
 
 ### Setting up the website
 
 - Download an set up XAMPP on your pc.
 - Clone this repository to the `htdocs` directory in XAMPP
-- Open phpmyadmin and import the following [database](instagramLikeWebsiteDB.sql)
+- Open phpmyadmin and create a database call `instagramdb`
+- Open your terminal, navigate to api folder and run `php artisan migrate` and then run `php artisan serve`
 - Open your browser to the localhost website
+
+## Screenshots
