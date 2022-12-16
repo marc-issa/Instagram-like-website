@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,9 +17,9 @@ route::group(["prefix"=>"v0.1"], function(){
         route::group(["prefix"=>"edit"], function(){
             route::post("profile", [UserController::class, "editProfile"]);
             route::post("password", [UserController::class, "editPassword"]);
-        });
-            
-        
-        
+        }); 
+    });
+    route::group(["prefix"=>"post"], function(){
+        route::post("share", [PostController::class, "sharePost"]);
     });
 });
