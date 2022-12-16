@@ -7,16 +7,45 @@ const profile_pic = document.getElementById("profile-pic");
 const name = document.getElementById("name");
 const bio = document.getElementById("bio");
 
+const modifyFollow = async (get = false) => {
+    let args = new FormData();
+    args.append("user_followed", localStorage.getItem("id"))
+
+    if (get) {
+        args.append("get", true);
+
+        const resp = await axios.post('http://127.0.0.1:8000/api/v0.1/follow', args, { headers: { Authorization: localStorage.getItem('token') } })
+            .then(res => {
+                return res.data.resp
+            })
+            .catch(err => console.log(err))
+        return resp;
+    } else {
+        const resp = await axios.post('http://127.0.0.1:8000/api/v0.1/follow', args, { headers: { Authorization: localStorage.getItem('token') } })
+            .then(res => {
+                return res.data.resp
+            })
+            .catch(err => console.log(err))
+        return resp;
+    }
+
+}
+
+const modifyFollowing = () => {
+    modifyFollow().then(res => {
+        window.location.reload();
+    })
+
+}
+
 getCurrUser().then(res => {
     const curr_user = res
-    console.log(curr_user)
+
     if (curr_user["id"] == localStorage.getItem("id")) {
         const edit_bt = document.getElementById("edit-bt");
         edit_bt.classList.add("active-bt");
 
         profile_username.innerHTML = curr_user["username"]
-
-        console.log(curr_user["name"]);
 
         if (curr_user["profile_img"] != "empty") {
             profile_pic.src = user["profile_img"]
@@ -44,7 +73,7 @@ getCurrUser().then(res => {
 
             name.innerHTML = user["name"]
             bio.innerHTML = user["bio"]
-            console.log(user["profile_img"])
+
             if (user["profile_img"] != "empty") {
                 profile_pic.src = user["profile_img"]
             }
@@ -74,3 +103,14 @@ axios.get(`http://127.0.0.1:8000/api/v0.1/post/user/${localStorage.getItem("id")
         }
     })
     .catch(err => console.log(err))
+
+modifyFollow(true).then(res => {
+    const follow_bt = document.getElementById("follow-bt");
+    if (res) {
+        follow_bt.classList.add("unfollow-bt");
+        follow_bt.innerHTML = "Unfollow"
+    } else {
+        follow_bt.classList.add("follow-bt");
+        follow_bt.innerHTML = "Follow"
+    }
+})
