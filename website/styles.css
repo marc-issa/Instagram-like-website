@@ -322,10 +322,15 @@ body {
 }
 
 .comment-sec-header {
-    width: 100%;
     display: flex;
     align-items: center;
     padding: .7em;
+    justify-content: space-between;
+}
+
+.header-profile {
+    display: flex;
+    align-items: center;
 }
 
 .post-profile {
@@ -340,6 +345,10 @@ body {
     font-size: .9em;
     font-weight: 500;
     color: rgba(0, 0, 0, .8);
+    cursor: pointer;
+}
+
+.delete-bt {
     cursor: pointer;
 }
 
