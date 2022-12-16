@@ -255,7 +255,7 @@ function sharePost() {
 
     if (caption_input.value.length < 300) {
         if (caption_input.value != '') {
-            args.append("caption", caption_input);
+            args.append("caption", caption_input.value);
         }
         if (localStorage.getItem("uploaded-img") != null) {
             args.append("img_url", localStorage.getItem("uploaded-img"))

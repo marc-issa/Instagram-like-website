@@ -81,7 +81,7 @@ const timeDiff = (date) => {
     if (date_diff == 0) {
         return "today"
     } else {
-        return `${date_diff}d`
+        return `A while ago`
     }
 }
 
