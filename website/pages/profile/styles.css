@@ -135,4 +135,6 @@ body {
     min-height: 290px;
     max-height: 290px;
     margin: .5em;
+
+    cursor: pointer;
 }

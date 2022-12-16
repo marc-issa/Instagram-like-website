@@ -26,3 +26,19 @@ axios.get('http://127.0.0.1:8000/api/v0.1/user/', { headers: { Authorization: lo
         // localStorage.removeItem("id");
     })
     .catch(err => console.log(err))
+
+axios.get(`http://127.0.0.1:8000/api/v0.1/post/user/${localStorage.getItem("id")}`, { headers: { Authorization: localStorage.getItem('token') } })
+    .then(res => {
+        let posts = res.data.posts
+        const post_count = document.getElementById("posts-count")
+        post_count.innerHTML = posts.length + " posts"
+
+        let display_posts = document.getElementById("profile-posts-display");
+        for (let i = posts.length - 1; i >= 0; i--) {
+            let post_display = document.createElement("div");
+            post_display.classList.add("post-display");
+            post_display.innerHTML = ` <img src="${posts[i]["img_url"]}" class="profile-post-size" onclick="viewPost(${posts[i]["id"]})">`
+            display_posts.appendChild(post_display);
+        }
+    })
+    .catch(err => console.log(err))
