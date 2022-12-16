@@ -143,6 +143,10 @@
     margin-top: .7em;
 }
 
+.black-mess {
+    color: rgb(0, 0, 0) !important;
+}
+
 .user-sent {
     align-self: flex-end;
     background-color: rgb(0, 0, 0, 0.2);

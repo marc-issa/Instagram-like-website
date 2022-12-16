@@ -235,6 +235,16 @@ body {
     border-radius: 25px;
 }
 
+@media only screen and (max-width : 991px) {
+    .dash-text {
+        opacity: 0;
+    }
+
+    .dash-tex {
+        opacity: 0;
+    }
+}
+
 /* *************************************** */
 /*                 Page Layout             */
 /* *************************************** */
