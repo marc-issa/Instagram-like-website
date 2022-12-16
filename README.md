@@ -40,5 +40,6 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## Screenshots
 <img src="imgs/home.png">
-<img align="left" width="158px" style="padding-right:10px;" src="imgs/signin.png">
-<img align="left" width="330" style="padding-right:10px;" src="imgs/home.png">
+<img src="imgs/explore.png">
+<img src="imgs/post.png">
+<img src="imgs/chats.png">
