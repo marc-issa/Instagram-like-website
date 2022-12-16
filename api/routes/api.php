@@ -37,7 +37,6 @@ route::group(["prefix"=>"v0.1"], function(){
     });
 
     route::group(["prefix"=>"like"], function(){
-        route::get("/", [LikeController::class, "getLikes"]);
-        route::post("add", [LikeController::class, "modifyLike"]);
+        route::post("/{get?}", [LikeController::class, "modifyLike"]);
     });
 });
