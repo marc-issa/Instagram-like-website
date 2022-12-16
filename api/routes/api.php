@@ -26,13 +26,14 @@ route::group(["prefix"=>"v0.1"], function(){
         }); 
     });
     route::group(["prefix"=>"post"], function(){
-        route::get("/{id}", [PostController::class, "getPost"]);
+        route::get("/following", [PostController::class, "followingsPosts"]);
         route::get("/", [PostController::class, "getAll"]);
         route::post("share", [PostController::class, "sharePost"]);
         route::get("user/{id}", [PostController::class, "getUserPosts"]);
         route::post("delete", [PostController::class, "deletePosts"]);
         route::get("comment/{id}", [PostController::class, "addComment"]);
         route::get("likes/{id}", [PostController::class, "addComment"]);
+        route::get("/{id}", [PostController::class, "getPost"]);
     });
 
     route::group(["prefix"=>"comment"], function(){

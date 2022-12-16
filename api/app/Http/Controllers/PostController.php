@@ -7,6 +7,7 @@ use App\Models\Like;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
@@ -75,6 +76,19 @@ class PostController extends Controller
         $posts = Post::all();
         return response()->json([
             $posts
+        ]);
+    }
+
+    function followingsPosts(){
+        $user = Auth::user();
+
+        $posts = DB::table("posts")
+            ->join("follows", "user_followed", "=", "posts.user_id")
+            ->where("user_following", $user["id"])
+            ->select("posts.*")
+            ->get();
+        return response()->json([
+            "posts"=>$posts
         ]);
     }
 }
