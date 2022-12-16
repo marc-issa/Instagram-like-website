@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\FollowController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
@@ -41,4 +42,7 @@ route::group(["prefix"=>"v0.1"], function(){
     route::group(["prefix"=>"like"], function(){
         route::post("/{get?}", [LikeController::class, "modifyLike"]);
     });
+    
+    route::post("/follow", [FollowController::class, "modifyFollow"]);
+    route::get("/follow/{id}", [FollowController::class, "countFollow"]);
 });

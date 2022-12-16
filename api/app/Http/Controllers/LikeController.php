@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\DB;
 
 class LikeController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth:api');
+    }
 
     function modifyLike(Request $request, $get=0){
         $user = Auth::user();
