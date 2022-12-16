@@ -32,21 +32,20 @@ const getUser = async (id) => {
     return resp
 }
 
-const createCommentItem = (comment) => {
-    const comment_content = document.getElementById("comment-content");
+const getLike = async (id) => {
+    let args = new FormData();
+    args.append("post_id", id)
 
-    let comment_item = document.createElement("div");
-    comment_item.classList.add("comment-item")
-    comment_item.innerHTML = `
-        <div class="username-comment" onclick="profileRedirect(${comment["id"]})" >
-                   ${comment["username"]} 
-        </div >
-        <div class="comment-content">
-            ${comment["comment"]}
-        </div>
-    `
-
-    comment_content.appendChild(comment_item);
+    const resp = await axios.post(`http://127.0.0.1:8000/api/v0.1/like/1`, args, { headers: { Authorization: localStorage.getItem('token') } })
+        .then(res => {
+            let like = res.data.likes_val
+            if (like != null) {
+                return true
+            }
+            return false
+        })
+        .catch(err => console.log(err))
+    return resp
 }
 
 const getAllComments = async (id) => {
@@ -61,6 +60,44 @@ const getAllComments = async (id) => {
         .catch(err => console.log(err))
 }
 
+const createCommentItem = (comment) => {
+    const comment_content = document.getElementById("comment-content");
+
+    let comment_item = document.createElement("div");
+    comment_item.classList.add("comment-item")
+    comment_item.innerHTML = `
+        <div class="username-comment" onclick="profileRedirect(${comment["id"]})" >
+                   ${comment["username"]} 
+        </div >
+        <div class="comment-text">
+            ${comment["comment"]}
+        </div>
+    `
+
+    comment_content.appendChild(comment_item);
+}
+
+const modifyLike = (id) => {
+    console.log(id)
+    let args = new FormData();
+    args.append("post_id", id)
+
+    axios.post(`http://127.0.0.1:8000/api/v0.1/like/`, args, { headers: { Authorization: localStorage.getItem('token') } })
+        .then(res => {
+            let like = res.data.message
+            console.log(like)
+            let like_bt = document.getElementById("like-bt");
+            if (like == undefined) {
+                like_bt.src = "../../images/liked-icon.png"
+            } else {
+                like_bt.src = "../../images/like-icon.png"
+            }
+        })
+        .catch(err => console.log(err))
+
+
+}
+
 function postInfo(id) {
     getPost(id).then(res => {
         let post = res;
@@ -68,25 +105,35 @@ function postInfo(id) {
             let curr_user = res;
             getUser(post["user_id"]).then(res => {
                 let user = res;
+                getLike(id).then(res => {
+                    let liked = res
 
-                if (user["id"] == curr_user["id"]) {
-                    let delete_bt = document.getElementById("delete-bt");
-                    delete_bt.classList.add("active")
-                    delete_bt.setAttribute("onclick", `deletePost(${post['id']})`)
-                }
+                    if (user["id"] == curr_user["id"]) {
+                        let delete_bt = document.getElementById("delete-bt");
+                        delete_bt.classList.add("active")
+                        delete_bt.setAttribute("onclick", `deletePost(${post['id']})`)
+                    }
 
-                let user_post_profile = document.getElementById("user-post-profile");
-                let user_post_username = document.getElementById("user-post-username");
-                let post_img = document.getElementById("post-img")
-                let comment_bt = document.getElementById("comment-bt");
+                    let user_post_profile = document.getElementById("user-post-profile");
+                    let user_post_username = document.getElementById("user-post-username");
+                    let post_img = document.getElementById("post-img")
+                    let comment_bt = document.getElementById("comment-bt");
+                    let like_bt = document.getElementById("like-bt");
 
-                user_post_profile.src = user["profile_img"];
-                user_post_username.innerHTML = user["username"]
-                post_img.src = post["img_url"]
-                comment_bt.setAttribute("onclick", `shareComment(${id})`)
+                    like_bt.src = "../../images/like-icon.png"
+                    if (liked) {
+                        like_bt.src = "../../images/liked-icon.png"
+                    }
 
-                getAllComments(id)
+                    user_post_profile.src = user["profile_img"];
+                    user_post_username.innerHTML = user["username"]
+                    post_img.src = post["img_url"]
+                    comment_bt.setAttribute("onclick", `shareComment(${id})`)
+                    like_bt.setAttribute("onclick", `modifyLike(${id})`)
 
+                    getAllComments(id)
+                })
+                    .catch(err => console.log(err))
             })
                 .catch(err => console.log(err))
         })
@@ -108,14 +155,13 @@ function shareComment(id) {
         axios.post('http://127.0.0.1:8000/api/v0.1/comment/share', args, { headers: { Authorization: localStorage.getItem('token') } })
             .then(res => {
                 incrementComments(id);
-                window.location.reload()
             })
     })
 }
 
 function incrementComments(id) {
     axios.get(`http://127.0.0.1:8000/api/v0.1/post/comment/${id}`, { headers: { Authorization: localStorage.getItem('token') } })
-        .then(res => res)
+        .then(res => console.log(res))
         .catch(err => console.log(err))
 }
 

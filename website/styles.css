@@ -379,9 +379,12 @@ body {
     cursor: pointer;
 }
 
-.comment-content {
+.comment-text {
     font-size: .8em;
     margin-left: 1em;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-x: hidden;
 }
 
 .comment-sec-footer {
@@ -403,6 +406,10 @@ body {
 
 .post-comment-input:focus {
     outline: 0;
+}
+
+.like-bt {
+    cursor: pointer;
 }
 
 .post-comment {
