@@ -23,7 +23,6 @@ axios.get('http://127.0.0.1:8000/api/v0.1/user/', { headers: { Authorization: lo
             const message_bt = document.getElementById("message-bt")
             const block_bt = document.getElementById("block-bt")
         }
-        // localStorage.removeItem("id");
     })
     .catch(err => console.log(err))
 

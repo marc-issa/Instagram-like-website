@@ -66,28 +66,28 @@
             </div>
             <div class="modal-comment-sec">
                 <div class="comment-sec-header">
-                    <div class="header-profile">
+                    <div class="header-profile" id="header_profile">
                         <img src="../../images/no-profile.png" alt="" class="post-profile" onclick="profileRedirect()">
                         <div class="username-post" onclick="profileRedirect()">
                             username.1
                         </div>
                     </div>
-                    <img src="../../images/delete-outline.png" class="delete-bt">
+                    <img src="../../images/delete-outline.png" class="delete-bt" id="delete-bt">
                 </div>
                 <div class="comment-sec-content">
                     <div class="comment-item">
-                        <div class="username-comment" onclick="profileRedirect()">
+                        <div class="username-comment" onclick="profileRedirect()" id="caption-username">
                             username.1
                         </div>
-                        <div class="comment-content">
+                        <div class="comment-content" id="caption-content">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus optio debitis
                             ratione, incidunt quod aut quaerat excepturi doloremque.
                         </div>
                     </div>
                 </div>
                 <div class="comment-sec-footer">
-                    <input type="text" class="post-comment-input" placeholder="Add a comment...">
-                    <a class="post-comment">Post</a>
+                    <input type="text" class="post-comment-input" placeholder="Add a comment..." id="comment-input">
+                    <a class="post-comment" id="share-comment-bt">Post</a>
                 </div>
             </div>
         </div>

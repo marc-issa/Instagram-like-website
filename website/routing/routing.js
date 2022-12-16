@@ -18,12 +18,6 @@ function uploadRedirect() {
     window.location.href = "http://localhost/Projects/Websites/Instagram-like-website/website/pages/upload/upload.html";
 }
 
-function profileRedirect(id) {
-    clearLocalStorage()
-    localStorage.setItem("id", id);
-    window.location.href = "http://localhost/Projects/Websites/Instagram-like-website/website/pages/profile/profile.html";
-}
-
 function editRedirect() {
     clearLocalStorage()
     window.location.href = "http://localhost/Projects/Websites/Instagram-like-website/website/pages/edit/edit.html";
@@ -51,3 +45,8 @@ function clearLocalStorage() {
 /*      Profile Redirect   */
 /***************************/
 
+function profileRedirect(id) {
+    clearLocalStorage()
+    localStorage.setItem("id", id);
+    window.location.href = "http://localhost/Projects/Websites/Instagram-like-website/website/pages/profile/profile.html";
+}

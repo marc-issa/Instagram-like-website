@@ -1,5 +1,68 @@
 /******************************/
-/* Hnadleing post submission  */
+/* Handeling post modal
+/*****************************/
+
+function deletePost(id) {
+
+}
+
+function postInfo(id) {
+    axios.get(`http://127.0.0.1:8000/api/v0.1/post/${id}}`, { headers: { Authorization: localStorage.getItem('token') } })
+        .then(res => {
+            let post = res.data.post;
+            axios.get('http://127.0.0.1:8000/api/v0.1/user/', { headers: { Authorization: localStorage.getItem('token') } })
+                .then(res => {
+                    let curr_user = res.data.user
+
+                    if (post["user_id"] == curr_user["id"]) {
+                        let delete_bt = document.getElementById("delete-bt");
+                        delete_bt.classList.add("active")
+                        delete_bt.setAttribute("onclick", `deletePost(${post['id']})`)
+                    }
+                    axios.get(`http://127.0.0.1:8000/api/v0.1/user/${post['user_id']}`, { headers: { Authorization: localStorage.getItem('token') } })
+                        .then(res => {
+                            user = res.data.user;
+                            let header_profile = document.getElementById("header_profile")
+                            header_profile.innerHTML = `
+                            <img src="${user["profile_img"]}" alt="" class="post-profile" onclick="profileRedirect(${user["id"]})">
+                            <div class="username-post" onclick="profileRedirect(${user["id"]})">
+                                ${user["username"]}
+                            </div>
+                            `
+
+                            let comment_bt = document.getElementById("share-comment-bt");
+                            comment_bt.setAttribute("onclick", `shareComment(${id})`)
+                        })
+                        .catch(err => console.log(err))
+
+
+                })
+                .catch(err => console.log(err))
+        })
+        .catch(err => console.log(err))
+}
+
+function shareComment(id) {
+    axios.get('http://127.0.0.1:8000/api/v0.1/user/', { headers: { Authorization: localStorage.getItem('token') } })
+        .then(res => {
+            curr_user = res.data.user;
+            let comment_input = document.getElementById("comment-input").value;
+
+            let args = new FormData();
+            args.append("post_id", id)
+            args.append("user_id", curr_user["id"])
+            args.append("comment", comment_input)
+
+            axios.post('http://127.0.0.1:8000/api/v0.1/comment/share', args, { headers: { Authorization: localStorage.getItem('token') } })
+                .then(res => {
+                    window.location.reload()
+                })
+        })
+        .catch(err => console.log(err))
+}
+
+/******************************/
+/* Handleing post submission  */
 /******************************/
 
 function sharePost() {
@@ -27,13 +90,15 @@ function sharePost() {
 /**********************************/
 /*    Modal Design Controls       */
 /**********************************/
-function viewPost() {
+function viewPost(id) {
     const modal = document.getElementById("modal");
     const post_modal = document.getElementById("modal-post");
 
     modal.classList.add('active');
     modal.classList.add('post');
     post_modal.classList.add('active');
+
+    postInfo(id);
 
     disableScrolling();
 }

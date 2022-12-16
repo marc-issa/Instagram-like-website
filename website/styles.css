@@ -349,6 +349,8 @@ body {
 }
 
 .delete-bt {
+    opacity: 0;
+    pointer-events: none;
     cursor: pointer;
 }
 
@@ -410,7 +412,8 @@ body {
     font-weight: 600;
 }
 
-.post-comment-input:focus+.post-comment {
+.post-comment-input:focus+.post-comment,
+.post-comment-input:valid+.post-comment {
     color: rgba(0, 149, 246, 1);
     cursor: pointer;
 }
