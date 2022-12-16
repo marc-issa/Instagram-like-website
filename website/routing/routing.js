@@ -50,3 +50,12 @@ function profileRedirect(id) {
     localStorage.setItem("id", id);
     window.location.href = "http://localhost/Projects/Websites/Instagram-like-website/website/pages/profile/profile.html";
 }
+
+function userProfileRedirect() {
+    clearLocalStorage()
+    getCurrUser().then(res => {
+        localStorage.setItem("id", res["id"]);
+        window.location.href = "http://localhost/Projects/Websites/Instagram-like-website/website/pages/profile/profile.html";
+    })
+
+}

@@ -43,8 +43,9 @@
                 <div class="btn-icon"><img src="../../images/add-icon.png" class="icon-size"></div>
                 <div class="dash-tex">Create</div>
             </div>
-            <div class="dash-btn" id="profile-redirect-dash">
-                <div class="btn-icon"><img src="../../images/no-profile.png" class="profile-size"></div>
+            <div class="dash-btn" id="profile-redirect-dash" onclick="userProfileRedirect()">
+                <div class="btn-icon"><img src="../../images/no-profile.png" class="profile-size">
+                </div>
                 <div class="dash-tex">Profile</div>
             </div>
             <div class="dash-btn" onclick="logout()">
@@ -298,8 +299,8 @@
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="app.js"></script>
-    <script src="../../routing/routing.js"></script>
     <script src="../../modal-scripts.js"></script>
+    <script src="../../routing/routing.js"></script>
 </body>
 
 </html>
