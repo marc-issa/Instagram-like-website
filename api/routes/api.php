@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -25,5 +26,11 @@ route::group(["prefix"=>"v0.1"], function(){
         route::post("share", [PostController::class, "sharePost"]);
         route::get("user/{id}", [PostController::class, "getUserPosts"]);
         route::post("delete", [PostController::class, "deletePosts"]);
+        route::get("comment/{id}", [PostController::class, "addComment"]);
+    });
+
+    route::group(["prefix"=>"comment"], function(){
+        route::post("share", [CommentController::class, "shareComment"]);
+        route::get("/{id}", [CommentController::class, "getAll"]);
     });
 });

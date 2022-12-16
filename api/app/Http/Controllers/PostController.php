@@ -52,4 +52,14 @@ class PostController extends Controller
             "posts"=>$posts
         ]);
     }
+
+    function addComment($id){
+        $post = Post::where("id", $id)->first();
+        $com = $post->comment_count;
+        $com++;
+        $post->update(["comment_count"=> $com]);
+        return response()->json([
+            "posts"=>$com
+        ]);
+    }
 }
