@@ -15,9 +15,19 @@ getCurrUser().then(res => {
         edit_bt.classList.add("active-bt");
 
         profile_username.innerHTML = curr_user["username"]
-        profile_pic.src = curr_user["profile_img"]
-        name.innerHTML = curr_user["name"]
-        bio.innerHTML = curr_user["bio"]
+
+        console.log(curr_user["name"]);
+
+        if (curr_user["profile_img"] != "empty") {
+            profile_pic.src = user["profile_img"]
+        }
+
+        if (curr_user["name"] != "empty") {
+            name.innerHTML = curr_user["name"]
+        }
+        if (curr_user["bio"] != "empty") {
+            bio.innerHTML = curr_user["bio"]
+        }
     } else {
         const follow_bt = document.getElementById("follow-bt")
         const message_bt = document.getElementById("message-bt")
@@ -31,12 +41,12 @@ getCurrUser().then(res => {
         getUser(localStorage.getItem("id")).then(res => {
             let user = res
             profile_username.innerHTML = user["username"]
-            profile_pic.src = user["profile_img"]
+
             name.innerHTML = user["name"]
             bio.innerHTML = user["bio"]
-
-            if (user["profile_img"] == "empty") {
-                profile_pic.src = "../../images/no-profile.png"
+            console.log(user["profile_img"])
+            if (user["profile_img"] != "empty") {
+                profile_pic.src = user["profile_img"]
             }
             if (user["name"] == "empty") {
                 name.innerHTML = ""

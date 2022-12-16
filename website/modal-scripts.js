@@ -116,6 +116,10 @@ function postInfo(id) {
 
                     let user_post_profile = document.getElementById("user-post-profile");
                     let user_post_username = document.getElementById("user-post-username");
+
+                    user_post_profile.setAttribute("onclick", `profileRedirect(${post["user_id"]})`)
+                    user_post_username.setAttribute("onclick", `profileRedirect(${post["user_id"]})`)
+
                     let post_img = document.getElementById("post-img")
                     let comment_bt = document.getElementById("comment-bt");
                     let like_bt = document.getElementById("like-bt");
