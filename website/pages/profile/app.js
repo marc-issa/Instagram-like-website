@@ -38,6 +38,14 @@ const modifyFollowing = () => {
 
 }
 
+const countFollows = async () => {
+    const resp = await axios.get(`http://127.0.0.1:8000/api/v0.1/follow/${localStorage.getItem("id")}`, { headers: { Authorization: localStorage.getItem('token') } })
+        .then(res => {
+            return res.data
+        })
+    return resp;
+}
+
 getCurrUser().then(res => {
     const curr_user = res
 
@@ -113,4 +121,12 @@ modifyFollow(true).then(res => {
         follow_bt.classList.add("follow-bt");
         follow_bt.innerHTML = "Follow"
     }
+})
+
+countFollows().then(res => {
+    const followers = document.getElementById("followers")
+    const following = document.getElementById("following")
+
+    followers.innerHTML = `${res.followers} followers`
+    following.innerHTML = `${res.following} followings`
 })
