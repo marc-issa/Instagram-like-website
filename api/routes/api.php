@@ -16,6 +16,7 @@ route::group(["prefix"=>"v0.1"], function(){
 
         route::get("/",[UserController::class,"getUser"]);
         route::get("/{id}",[UserController::class,"getUserById"]);
+        route::get("search/{username}",[UserController::class,"getByUsername"]);
 
         route::group(["prefix"=>"edit"], function(){
             route::post("profile", [UserController::class, "editProfile"]);

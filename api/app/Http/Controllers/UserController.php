@@ -102,4 +102,12 @@ class UserController extends Controller
             'user' => $user,
         ]);
     }
+
+    function getByUsername($username){
+        $query = User::where("username", "LIKE","{$username}%")->get();
+
+        return response()->json([
+            "search"=>$query
+        ]); 
+    }
 }
