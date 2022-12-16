@@ -79,6 +79,14 @@ body {
     pointer-events: none;
 }
 
+.unfollow-bt {
+    background-color: white;
+    color: #4285f4;
+    opacity: 0;
+    pointer-events: none;
+    border: 1px solid #DEE2E6;
+}
+
 .block-bt {
     background-color: rgb(255, 0, 0, 0.8);
     color: white;
