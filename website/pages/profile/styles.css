@@ -94,6 +94,13 @@ body {
     pointer-events: none;
 }
 
+.unblock-bt {
+    background-color: white;
+    color: rgb(255, 0, 0, 0.8);
+    opacity: 0;
+    pointer-events: none;
+}
+
 .edit-bt {
     opacity: 0;
     pointer-events: none;

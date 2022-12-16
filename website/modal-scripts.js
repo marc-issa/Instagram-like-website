@@ -1,4 +1,32 @@
 /******************************/
+/*      Handeling blocks
+/*****************************/
+
+const modifyBlock = async (get = false) => {
+    let args = new FormData();
+    args.append("user_blocked", localStorage.getItem("id"))
+
+    if (get) {
+        args.append("get", true);
+
+        const resp = await axios.post('http://127.0.0.1:8000/api/v0.1/block', args, { headers: { Authorization: localStorage.getItem('token') } })
+            .then(res => {
+                return res.data.resp
+            })
+            .catch(err => console.log(err))
+        return resp;
+    } else {
+        const resp = await axios.post('http://127.0.0.1:8000/api/v0.1/block', args, { headers: { Authorization: localStorage.getItem('token') } })
+            .then(res => {
+                return res.data.resp
+            })
+            .catch(err => console.log(err))
+        return resp;
+    }
+
+}
+
+/******************************/
 /* Handeling post modal
 /*****************************/
 
@@ -109,7 +137,7 @@ function postInfo(id) {
                     let liked = res
 
                     if (user["id"] == curr_user["id"]) {
-                        let delete_bt = document.getElementById("delete-bt");
+                        const delete_bt = document.getElementById("delete-bt");
                         delete_bt.classList.add("active")
                         delete_bt.setAttribute("onclick", `deletePost(${post['id']})`)
                     }
@@ -301,10 +329,11 @@ function closeModal() {
     const storie_modal = document.getElementById("modal-storie");
     const upload_modal = document.getElementById("modal-add");
     const caption_input = document.getElementById("caption-input");
+    const delete_bt = document.getElementById("delete-bt");
 
     caption_input.value = "";
 
-
+    delete_bt.classList.remove("active")
     modal.classList.remove('active');
     storie_modal.classList.remove('active')
     post_modal.classList.remove('active');
@@ -316,6 +345,7 @@ function closeModal() {
     modal.classList.remove('notif');
     modal.classList.remove('add');
 
+    delete_bt.removeAttribute("onclick")
 
     enableScrolling();
     deleteImg();

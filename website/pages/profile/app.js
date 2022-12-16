@@ -56,7 +56,7 @@ getCurrUser().then(res => {
         profile_username.innerHTML = curr_user["username"]
 
         if (curr_user["profile_img"] != "empty") {
-            profile_pic.src = user["profile_img"]
+            profile_pic.src = curr_user["profile_img"]
         }
 
         if (curr_user["name"] != "empty") {
@@ -130,3 +130,22 @@ countFollows().then(res => {
     followers.innerHTML = `${res.followers} followers`
     following.innerHTML = `${res.following} followings`
 })
+
+modifyBlock(true).then(res => {
+    if (res) {
+        const block_bt = document.getElementById("block-bt");
+        if (res) {
+            block_bt.classList.add("unblock-bt");
+            block_bt.innerHTML = "Unblock"
+        } else {
+            block_bt.classList.add("block-bt");
+            block_bt.innerHTML = "Block"
+        }
+    }
+})
+
+const modifyBlocks = () => {
+    modifyBlock().then(res => {
+        window.location.reload();
+    })
+}
