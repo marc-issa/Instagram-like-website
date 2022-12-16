@@ -8,6 +8,9 @@ This project is a clone of the popular photo sharing app Instagram. It is writte
 - Users can upload photos and share them with other users
 - Users can see their photos and others in their feed
 - Users can like and comment on photos
+- Users can find friends
+- Users can talk to each other with our messaging feature
+- Users can add, block and remove friends
 
 ## APIs
 Here is a like to the list of [APIs](api).
