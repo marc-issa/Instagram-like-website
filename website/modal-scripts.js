@@ -14,7 +14,10 @@ function sharePost() {
         if (localStorage.getItem("uploaded-img") != null) {
             args.append("img_url", localStorage.getItem("uploaded-img"))
             axios.post('http://127.0.0.1:8000/api/v0.1/post/share', args, { headers: { Authorization: localStorage.getItem('token') } })
-                .then(res => res)
+                .then(res => {
+                    localStorage.removeItem("uploaded-img")
+                    window.location.href = "http://localhost/Projects/Websites/Instagram-like-website/website/pages/home/home.html";
+                })
                 .catch(err => console.log(err));
         }
     }
@@ -144,21 +147,23 @@ function addUploadedImg() {
     const sec_footer = document.getElementById("upload-sec-footer");
     const delete_icon = document.getElementById("delete-icon")
     const share_bt = document.getElementById("share-bt")
+    if (img_input.files[0].size < 65000) {
 
-    uploaded_img.classList.add("active");
-    delete_icon.classList.add("active");
-    share_bt.classList.add("active");
+        uploaded_img.classList.add("active");
+        delete_icon.classList.add("active");
+        share_bt.classList.add("active");
 
-    reader.readAsDataURL(img_input.files[0]);
+        reader.readAsDataURL(img_input.files[0]);
 
-    reader.addEventListener("load", function () {
-        localStorage.setItem("uploaded-img", reader.result);
-        uploaded_img.src = localStorage.getItem("uploaded-img");
-        console.log(uploaded_img);
-    })
+        reader.addEventListener("load", function () {
+            localStorage.setItem("uploaded-img", reader.result);
+            uploaded_img.src = localStorage.getItem("uploaded-img");
+        })
 
-    sec_footer.classList.add("deactivate-upload-footer")
-
+        sec_footer.classList.add("deactivate-upload-footer")
+    } else {
+        alert("Image size too big")
+    }
 }
 
 function deleteImg() {
